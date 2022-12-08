@@ -20,7 +20,7 @@ protocol GameListViewModelDelegate : AnyObject {
 }
 class GameListViewModel : GameListViewModelProtocol {
     weak var delegate : GameListViewModelDelegate?
-    private var games : [GamesModel]?
+    public var games : [GamesModel]?
     
     func fetchGames(page: Int) {
         NetworkManager.shared.getAllGames(page: page) { [weak self] result in

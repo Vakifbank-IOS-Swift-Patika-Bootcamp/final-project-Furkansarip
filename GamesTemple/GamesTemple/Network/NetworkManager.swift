@@ -36,7 +36,6 @@ struct NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 let games = try decoder.decode(GameResponse.self, from: data)
-                print(games)
                 completion(.success(games))
             }catch{
                 completion(.failure(.invalidData))
