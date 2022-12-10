@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		745B986E29427FBD0033819E /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 745B986D29427FBD0033819E /* DropDown */; };
+		745B98712944D3130033819E /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B986F2944D3130033819E /* DropDownCell.swift */; };
+		745B98722944D3130033819E /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 745B98702944D3130033819E /* DropDownCell.xib */; };
 		74F8BC7B293FAF840059B988 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7A293FAF840059B988 /* AppDelegate.swift */; };
 		74F8BC7D293FAF840059B988 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7C293FAF840059B988 /* SceneDelegate.swift */; };
 		74F8BC7F293FAF840059B988 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7E293FAF840059B988 /* GamesViewController.swift */; };
@@ -48,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		745B986F2944D3130033819E /* DropDownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownCell.swift; sourceTree = "<group>"; };
+		745B98702944D3130033819E /* DropDownCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownCell.xib; sourceTree = "<group>"; };
 		74F8BC77293FAF840059B988 /* GamesTemple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamesTemple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F8BC7A293FAF840059B988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74F8BC7C293FAF840059B988 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 				74F8BCBE293FBED60059B988 /* GameTableViewCell.swift */,
 				74F8BCC8293FD9250059B988 /* GamesTableViewCell.swift */,
 				74F8BCC9293FD9250059B988 /* GamesTableViewCell.xib */,
+				745B986F2944D3130033819E /* DropDownCell.swift */,
+				745B98702944D3130033819E /* DropDownCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 			files = (
 				74F8BC8A293FAF840059B988 /* LaunchScreen.storyboard in Resources */,
 				74F8BC87293FAF840059B988 /* Assets.xcassets in Resources */,
+				745B98722944D3130033819E /* DropDownCell.xib in Resources */,
 				74F8BC82293FAF840059B988 /* Main.storyboard in Resources */,
 				74F8BCCB293FD9250059B988 /* GamesTableViewCell.xib in Resources */,
 			);
@@ -382,6 +389,7 @@
 				74F8BCCA293FD9250059B988 /* GamesTableViewCell.swift in Sources */,
 				74F8BCBD293FB87A0059B988 /* GamesModel.swift in Sources */,
 				74F8BCAF293FB10F0059B988 /* NetworkManager.swift in Sources */,
+				745B98712944D3130033819E /* DropDownCell.swift in Sources */,
 				74F8BC7B293FAF840059B988 /* AppDelegate.swift in Sources */,
 				74F8BCB4293FB1780059B988 /* GameResponse.swift in Sources */,
 				74F8BC7D293FAF840059B988 /* SceneDelegate.swift in Sources */,

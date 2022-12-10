@@ -12,6 +12,14 @@ final class GamesViewController: UIViewController {
     let dropDownMenu : DropDown = {
         let dropDownMenu = DropDown()
         dropDownMenu.dataSource = ["Highest Rating","Upcoming Games","Clear Filter"]
+        let images = ["trophy.circle","timer.circle","trash.circle"]
+        dropDownMenu.cellNib = UINib(nibName: "DropDownCell", bundle: nil)
+        dropDownMenu.customCellConfiguration = { (index: Index, item: String, cell: DropDownCell) -> Void in
+            guard let cell = cell as? ItemCell else { return }
+
+            // Setup your custom UI components
+            cell.itemImage.image = UIImage(systemName: images[index])
+         }
         return dropDownMenu
     }()
     @IBOutlet weak var gamesTableView: UITableView! {
@@ -36,8 +44,9 @@ final class GamesViewController: UIViewController {
     }
 
     @IBAction func filterButtonClicked(_ sender: Any) {
-        dropDownMenu.show()
+        
 
+        dropDownMenu.show()
         dropDownMenu.selectionAction =  { [unowned self] (index: Int, item: String) in
             switch item {
             case "Highest Rating":
