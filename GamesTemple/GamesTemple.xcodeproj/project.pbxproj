@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		745B986E29427FBD0033819E /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 745B986D29427FBD0033819E /* DropDown */; };
 		74F8BC7B293FAF840059B988 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7A293FAF840059B988 /* AppDelegate.swift */; };
 		74F8BC7D293FAF840059B988 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7C293FAF840059B988 /* SceneDelegate.swift */; };
 		74F8BC7F293FAF840059B988 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7E293FAF840059B988 /* GamesViewController.swift */; };
@@ -77,6 +78,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74F8BCC4293FC3B10059B988 /* Alamofire in Frameworks */,
+				745B986E29427FBD0033819E /* DropDown in Frameworks */,
 				74F8BCC7293FD67C0059B988 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +251,7 @@
 			packageProductDependencies = (
 				74F8BCC3293FC3B10059B988 /* Alamofire */,
 				74F8BCC6293FD67C0059B988 /* AlamofireImage */,
+				745B986D29427FBD0033819E /* DropDown */,
 			);
 			productName = GamesTemple;
 			productReference = 74F8BC77293FAF840059B988 /* GamesTemple.app */;
@@ -325,6 +328,7 @@
 			packageReferences = (
 				74F8BCC2293FC3B10059B988 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				74F8BCC5293FD67C0059B988 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				745B986C29427FBD0033819E /* XCRemoteSwiftPackageReference "DropDown" */,
 			);
 			productRefGroup = 74F8BC78293FAF840059B988 /* Products */;
 			projectDirPath = "";
@@ -718,6 +722,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		745B986C29427FBD0033819E /* XCRemoteSwiftPackageReference "DropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AssistoLab/DropDown";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		74F8BCC2293FC3B10059B988 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -737,6 +749,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		745B986D29427FBD0033819E /* DropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 745B986C29427FBD0033819E /* XCRemoteSwiftPackageReference "DropDown" */;
+			productName = DropDown;
+		};
 		74F8BCC3293FC3B10059B988 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 74F8BCC2293FC3B10059B988 /* XCRemoteSwiftPackageReference "Alamofire" */;

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import DropDown
 
 protocol GameListViewModelProtocol {
     var delegate : GameListViewModelDelegate? { get set }
@@ -13,6 +14,8 @@ protocol GameListViewModelProtocol {
     func getGameCount() -> Int
     func getGame(at index:Int) ->GamesModel?
 }
+
+
 
 protocol GameListViewModelDelegate : AnyObject {
     func gamesLoaded()

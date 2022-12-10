@@ -68,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xjM-FN-K3V">
-                                <rect key="frame" x="0.0" y="121" width="390" height="640"/>
+                                <rect key="frame" x="0.0" y="91" width="390" height="670"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GameCell" rowHeight="167" id="WJt-w4-PLP" customClass="GamesTableViewCell" customModule="GamesTemple" customModuleProvider="target">
@@ -88,11 +88,18 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xjM-FN-K3V" secondAttribute="bottom" id="gKO-dA-VZx"/>
                             <constraint firstItem="xjM-FN-K3V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="goa-D2-98b"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xjM-FN-K3V" secondAttribute="trailing" id="qSR-P7-ydv"/>
-                            <constraint firstItem="xjM-FN-K3V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="uiv-Wy-6f6"/>
+                            <constraint firstItem="xjM-FN-K3V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="uiv-Wy-6f6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Game List" id="e32-LW-9z6"/>
+                    <navigationItem key="navigationItem" title="Game List" id="e32-LW-9z6">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Dng-EP-WYC">
+                            <connections>
+                                <action selector="filterButtonClicked:" destination="BYZ-38-t0r" id="n0g-rd-gwS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="filterItemButton" destination="Dng-EP-WYC" id="2Xj-fi-C4A"/>
                         <outlet property="gamesTableView" destination="xjM-FN-K3V" id="X76-8f-d1g"/>
                     </connections>
                 </viewController>
