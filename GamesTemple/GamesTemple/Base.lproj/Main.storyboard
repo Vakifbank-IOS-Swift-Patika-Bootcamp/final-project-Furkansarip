@@ -92,7 +92,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Game List" id="e32-LW-9z6">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Dng-EP-WYC">
+                        <barButtonItem key="rightBarButtonItem" title="Filter" image="ellipsis.circle" catalog="system" id="Dng-EP-WYC">
                             <connections>
                                 <action selector="filterButtonClicked:" destination="BYZ-38-t0r" id="n0g-rd-gwS"/>
                             </connections>
@@ -128,6 +128,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="79"/>
         <image name="note.text" catalog="system" width="128" height="107"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>

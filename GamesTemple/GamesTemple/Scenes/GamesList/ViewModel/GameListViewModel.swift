@@ -13,6 +13,8 @@ protocol GameListViewModelProtocol {
     func fetchGames(page:Int)
     func getGameCount() -> Int
     func getGame(at index:Int) ->GamesModel?
+    func getHighestRating()
+    func upcomingGames()
 }
 
 
@@ -22,6 +24,7 @@ protocol GameListViewModelDelegate : AnyObject {
     func gamesFailed(error:ErrorModel)
 }
 class GameListViewModel : GameListViewModelProtocol {
+    
     weak var delegate : GameListViewModelDelegate?
     public var games : [GamesModel]?
     
@@ -46,7 +49,29 @@ class GameListViewModel : GameListViewModelProtocol {
         return games?[index]
     }
     
+    func getHighestRating()  {
+        NetworkManager.shared.highestRating(page: 1) { result in
+            switch result {
+            case .success(let ratings):
+                self.games = ratings.results
+                self.delegate?.gamesLoaded()
+            case .failure(let error):
+                self.delegate?.gamesFailed(error: error)
+            }
+        }
+    }
     
+    func upcomingGames() {
+        NetworkManager.shared.upcomingGames(page: 1) { result in
+            switch result {
+            case .success(let upcoming):
+                self.games = upcoming.results
+                self.delegate?.gamesLoaded()
+            case . failure(let error):
+                self.delegate?.gamesFailed(error: error)
+            }
+        }
+    }
     
     
     

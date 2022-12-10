@@ -11,7 +11,7 @@ import DropDown
 final class GamesViewController: UIViewController {
     let dropDownMenu : DropDown = {
         let dropDownMenu = DropDown()
-        dropDownMenu.dataSource = ["PC","Xbox","Playstation"]
+        dropDownMenu.dataSource = ["Highest Rating","Upcoming Games","Clear Filter"]
         return dropDownMenu
     }()
     @IBOutlet weak var gamesTableView: UITableView! {
@@ -30,7 +30,6 @@ final class GamesViewController: UIViewController {
         viewModel.delegate = self
         viewModel.fetchGames(page: 1)
         configureSearch()
-        
         dropDownMenu.anchorView = filterItemButton
         
         
@@ -38,8 +37,18 @@ final class GamesViewController: UIViewController {
 
     @IBAction func filterButtonClicked(_ sender: Any) {
         dropDownMenu.show()
+
         dropDownMenu.selectionAction =  { [unowned self] (index: Int, item: String) in
-            print("Selected item: \(item) at index: \(index)")
+            switch item {
+            case "Highest Rating":
+                viewModel.getHighestRating()
+            case "Upcoming Games":
+                viewModel.upcomingGames()
+            case "Clear Filter":
+                viewModel.fetchGames(page: 1)
+            default:
+                print("test")
+            }
           }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -55,11 +64,6 @@ final class GamesViewController: UIViewController {
         search.searchBar.autocapitalizationType = .none
         navigationItem.searchController = search
     }
-    
-    func configureFilter(){
-        
-    }
-    
 }
 
 extension GamesViewController : UITableViewDelegate,UITableViewDataSource {
