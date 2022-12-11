@@ -42,7 +42,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="itemImage" destination="WDc-3c-7Zm" id="2Ww-tY-ElI"/>
-                <outlet property="optionLabel" destination="j0o-95-FaY" id="v8L-0w-64Z"/>
+                <outlet property="optionLabel" destination="j0o-95-FaY" id="kBZ-zP-NHT"/>
             </connections>
             <point key="canvasLocation" x="132.30769230769229" y="36.255924170616112"/>
         </tableViewCell>

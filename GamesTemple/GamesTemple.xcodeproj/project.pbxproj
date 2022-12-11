@@ -10,6 +10,10 @@
 		745B986E29427FBD0033819E /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 745B986D29427FBD0033819E /* DropDown */; };
 		745B98712944D3130033819E /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B986F2944D3130033819E /* DropDownCell.swift */; };
 		745B98722944D3130033819E /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 745B98702944D3130033819E /* DropDownCell.xib */; };
+		745B98742945B3510033819E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B98732945B3510033819E /* BaseViewController.swift */; };
+		745B98772945B36A0033819E /* MaterialActivityIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 745B98762945B36A0033819E /* MaterialActivityIndicator */; };
+		745B987A2945CBDB0033819E /* SwiftAlertView in Frameworks */ = {isa = PBXBuildFile; productRef = 745B98792945CBDB0033819E /* SwiftAlertView */; };
+		745B98802945F68C0033819E /* GameDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B987F2945F68C0033819E /* GameDetailModel.swift */; };
 		74F8BC7B293FAF840059B988 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7A293FAF840059B988 /* AppDelegate.swift */; };
 		74F8BC7D293FAF840059B988 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7C293FAF840059B988 /* SceneDelegate.swift */; };
 		74F8BC7F293FAF840059B988 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7E293FAF840059B988 /* GamesViewController.swift */; };
@@ -52,6 +56,8 @@
 /* Begin PBXFileReference section */
 		745B986F2944D3130033819E /* DropDownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownCell.swift; sourceTree = "<group>"; };
 		745B98702944D3130033819E /* DropDownCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownCell.xib; sourceTree = "<group>"; };
+		745B98732945B3510033819E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		745B987F2945F68C0033819E /* GameDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailModel.swift; sourceTree = "<group>"; };
 		74F8BC77293FAF840059B988 /* GamesTemple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamesTemple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F8BC7A293FAF840059B988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74F8BC7C293FAF840059B988 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,8 +87,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				745B987A2945CBDB0033819E /* SwiftAlertView in Frameworks */,
 				74F8BCC4293FC3B10059B988 /* Alamofire in Frameworks */,
 				745B986E29427FBD0033819E /* DropDown in Frameworks */,
+				745B98772945B36A0033819E /* MaterialActivityIndicator in Frameworks */,
 				74F8BCC7293FD67C0059B988 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +112,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		745B987B2945F6420033819E /* GameDetail */ = {
+			isa = PBXGroup;
+			children = (
+				745B987E2945F6610033819E /* ViewModel */,
+				745B987D2945F65B0033819E /* Model */,
+				745B987C2945F6500033819E /* Controller */,
+			);
+			path = GameDetail;
+			sourceTree = "<group>";
+		};
+		745B987C2945F6500033819E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		745B987D2945F65B0033819E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				745B987F2945F68C0033819E /* GameDetailModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		745B987E2945F6610033819E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		74F8BC6E293FAF830059B988 = {
 			isa = PBXGroup;
 			children = (
@@ -130,7 +170,7 @@
 				74F8BCB6293FB6380059B988 /* App */,
 				74F8BCB5293FB6310059B988 /* Scenes */,
 				74F8BCB0293FB1440059B988 /* Model */,
-				74F8BCAD293FAFFA0059B988 /* Network */,
+				74F8BCAD293FAFFA0059B988 /* Core */,
 				74F8BC80293FAF840059B988 /* Main.storyboard */,
 				74F8BC8B293FAF840059B988 /* Info.plist */,
 				74F8BC83293FAF840059B988 /* GamesTemple.xcdatamodeld */,
@@ -155,12 +195,13 @@
 			path = GamesTempleUITests;
 			sourceTree = "<group>";
 		};
-		74F8BCAD293FAFFA0059B988 /* Network */ = {
+		74F8BCAD293FAFFA0059B988 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				745B98732945B3510033819E /* BaseViewController.swift */,
 				74F8BCAE293FB10F0059B988 /* NetworkManager.swift */,
 			);
-			path = Network;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		74F8BCB0293FB1440059B988 /* Model */ = {
@@ -175,6 +216,7 @@
 		74F8BCB5293FB6310059B988 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				745B987B2945F6420033819E /* GameDetail */,
 				74F8BCB7293FB6770059B988 /* GamesList */,
 			);
 			path = Scenes;
@@ -258,6 +300,8 @@
 				74F8BCC3293FC3B10059B988 /* Alamofire */,
 				74F8BCC6293FD67C0059B988 /* AlamofireImage */,
 				745B986D29427FBD0033819E /* DropDown */,
+				745B98762945B36A0033819E /* MaterialActivityIndicator */,
+				745B98792945CBDB0033819E /* SwiftAlertView */,
 			);
 			productName = GamesTemple;
 			productReference = 74F8BC77293FAF840059B988 /* GamesTemple.app */;
@@ -335,6 +379,8 @@
 				74F8BCC2293FC3B10059B988 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				74F8BCC5293FD67C0059B988 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 				745B986C29427FBD0033819E /* XCRemoteSwiftPackageReference "DropDown" */,
+				745B98752945B36A0033819E /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */,
+				745B98782945CBDB0033819E /* XCRemoteSwiftPackageReference "SwiftAlertView" */,
 			);
 			productRefGroup = 74F8BC78293FAF840059B988 /* Products */;
 			projectDirPath = "";
@@ -381,9 +427,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				745B98742945B3510033819E /* BaseViewController.swift in Sources */,
 				74F8BCC1293FBFAE0059B988 /* GameListViewModel.swift in Sources */,
 				74F8BCB2293FB14D0059B988 /* ErrorModel.swift in Sources */,
 				74F8BC85293FAF840059B988 /* GamesTemple.xcdatamodeld in Sources */,
+				745B98802945F68C0033819E /* GameDetailModel.swift in Sources */,
 				74F8BCBF293FBED60059B988 /* GameTableViewCell.swift in Sources */,
 				74F8BC7F293FAF840059B988 /* GamesViewController.swift in Sources */,
 				74F8BCCA293FD9250059B988 /* GamesTableViewCell.swift in Sources */,
@@ -738,6 +786,22 @@
 				kind = branch;
 			};
 		};
+		745B98752945B36A0033819E /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nspavlo/MaterialActivityIndicator";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		745B98782945CBDB0033819E /* XCRemoteSwiftPackageReference "SwiftAlertView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dinhquan/SwiftAlertView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		74F8BCC2293FC3B10059B988 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -761,6 +825,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 745B986C29427FBD0033819E /* XCRemoteSwiftPackageReference "DropDown" */;
 			productName = DropDown;
+		};
+		745B98762945B36A0033819E /* MaterialActivityIndicator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 745B98752945B36A0033819E /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */;
+			productName = MaterialActivityIndicator;
+		};
+		745B98792945CBDB0033819E /* SwiftAlertView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 745B98782945CBDB0033819E /* XCRemoteSwiftPackageReference "SwiftAlertView" */;
+			productName = SwiftAlertView;
 		};
 		74F8BCC3293FC3B10059B988 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

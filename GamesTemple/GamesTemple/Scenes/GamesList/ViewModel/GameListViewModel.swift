@@ -17,8 +17,6 @@ protocol GameListViewModelProtocol {
     func upcomingGames()
 }
 
-
-
 protocol GameListViewModelDelegate : AnyObject {
     func gamesLoaded()
     func gamesFailed(error:ErrorModel)
@@ -50,7 +48,8 @@ class GameListViewModel : GameListViewModelProtocol {
     }
     
     func getHighestRating()  {
-        NetworkManager.shared.highestRating(page: 1) { result in
+        NetworkManager.shared.highestRating(page: 1) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let ratings):
                 self.games = ratings.results
@@ -62,7 +61,8 @@ class GameListViewModel : GameListViewModelProtocol {
     }
     
     func upcomingGames() {
-        NetworkManager.shared.upcomingGames(page: 1) { result in
+        NetworkManager.shared.upcomingGames(page:1) {[weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let upcoming):
                 self.games = upcoming.results
@@ -72,7 +72,4 @@ class GameListViewModel : GameListViewModelProtocol {
             }
         }
     }
-    
-    
-    
 }

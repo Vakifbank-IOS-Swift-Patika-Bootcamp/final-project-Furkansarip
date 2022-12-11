@@ -14,7 +14,8 @@ class ItemCell: DropDownCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-      
+        itemImage.contentMode = .scaleAspectFit
+        optionLabel.textColor = .white
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

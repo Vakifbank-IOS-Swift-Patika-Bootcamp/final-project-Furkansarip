@@ -8,16 +8,14 @@
 import UIKit
 import DropDown
 
-final class GamesViewController: UIViewController {
+final class GamesViewController: BaseViewController {
     let dropDownMenu : DropDown = {
         let dropDownMenu = DropDown()
-        dropDownMenu.dataSource = ["Highest Rating","Upcoming Games","Clear Filter"]
+        dropDownMenu.dataSource = ["Top 20 Highest Rating","Upcoming Games","Clear Filter"]
         let images = ["trophy.circle","timer.circle","trash.circle"]
         dropDownMenu.cellNib = UINib(nibName: "DropDownCell", bundle: nil)
         dropDownMenu.customCellConfiguration = { (index: Index, item: String, cell: DropDownCell) -> Void in
             guard let cell = cell as? ItemCell else { return }
-
-            // Setup your custom UI components
             cell.itemImage.image = UIImage(systemName: images[index])
          }
         return dropDownMenu
@@ -32,8 +30,10 @@ final class GamesViewController: UIViewController {
     @IBOutlet weak var filterItemButton: UIBarButtonItem!
     var viewModel = GameListViewModel()
     var filteredGames : [GamesModel]?
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         gamesTableView.register(UINib(nibName: "GamesTableViewCell", bundle: nil), forCellReuseIdentifier: "GameCell")
         viewModel.delegate = self
         viewModel.fetchGames(page: 1)
@@ -42,15 +42,21 @@ final class GamesViewController: UIViewController {
         
         
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        indicator.startAnimating()
+        filteredGames = viewModel.games
+        self.indicator.stopAnimating()
+    }
+ //MARK: FilterButton
     @IBAction func filterButtonClicked(_ sender: Any) {
-        
-
         dropDownMenu.show()
         dropDownMenu.selectionAction =  { [unowned self] (index: Int, item: String) in
             switch item {
-            case "Highest Rating":
+            case "Top 20 Highest Rating":
+                indicator.startAnimating()
                 viewModel.getHighestRating()
+                indicator.stopAnimating()
             case "Upcoming Games":
                 viewModel.upcomingGames()
             case "Clear Filter":
@@ -60,11 +66,8 @@ final class GamesViewController: UIViewController {
             }
           }
     }
-    override func viewWillAppear(_ animated: Bool) {
-        filteredGames = viewModel.games
-        gamesTableView.reloadData()
-    }
     
+    //MARK: SearchController
     func configureSearch(){
         let search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
@@ -75,6 +78,20 @@ final class GamesViewController: UIViewController {
     }
 }
 
+extension GamesViewController : UISearchResultsUpdating,UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        print(text)
+        viewModel.games = filteredGames?.filter({$0.name.lowercased().contains(text)})
+                if text == "" {
+                    viewModel.games = filteredGames
+                }
+                gamesTableView.reloadData()
+            }
+    }
+    
+
+//MARK: TableView
 extension GamesViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.getGameCount()
@@ -95,35 +112,32 @@ extension GamesViewController : UITableViewDelegate,UITableViewDataSource {
     
     
 }
-
+//MARK: Delegate
 extension GamesViewController : GameListViewModelDelegate {
     func gamesLoaded() {
         DispatchQueue.main.async {
+            
             self.filteredGames = self.viewModel.games
             self.gamesTableView.reloadData()
+            self.indicator.stopAnimating()
         }
         
     }
     
     func gamesFailed(error: ErrorModel) {
-        print("Failed")
+        indicator.startAnimating()
+        DispatchQueue.main.async {
+            self.showErrorAlert(message: error.rawValue) {
+                print("Error Log")
+                
+            }
+        }
+        
     }
     
     
 }
 
-extension GamesViewController : UISearchResultsUpdating,UISearchBarDelegate {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else { return }
-        print(text)
-        viewModel.games = filteredGames?.filter({$0.name.lowercased().contains(text)})
-                if text == "" {
-                    viewModel.games = filteredGames
-                }
-                gamesTableView.reloadData()
-            }
-    }
-    
     
 
 
