@@ -8,7 +8,7 @@
 import UIKit
 import DropDown
 
-final class GamesViewController: BaseViewController {
+final class GamesListViewController: BaseViewController {
     let dropDownMenu : DropDown = {
         let dropDownMenu = DropDown()
         dropDownMenu.dataSource = ["Top 20 Highest Rating","Upcoming Games","Clear Filter"]
@@ -28,8 +28,9 @@ final class GamesViewController: BaseViewController {
     }
    
     @IBOutlet weak var filterItemButton: UIBarButtonItem!
+    var gameID : Int?
     var viewModel = GameListViewModel()
-    var filteredGames : [GamesModel]?
+    var filteredGames : [GamesListModel]?
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +79,7 @@ final class GamesViewController: BaseViewController {
     }
 }
 
-extension GamesViewController : UISearchResultsUpdating,UISearchBarDelegate {
+extension GamesListViewController : UISearchResultsUpdating,UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
         print(text)
@@ -92,7 +93,7 @@ extension GamesViewController : UISearchResultsUpdating,UISearchBarDelegate {
     
 
 //MARK: TableView
-extension GamesViewController : UITableViewDelegate,UITableViewDataSource {
+extension GamesListViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.getGameCount()
     }
@@ -110,10 +111,25 @@ extension GamesViewController : UITableViewDelegate,UITableViewDataSource {
         return 120
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let id = viewModel.getGameId(at: indexPath.row)
+        gameID = id
+        print(gameID)
+        performSegue(withIdentifier: "gameDetail", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailView = segue.destination as? GameDetailViewController else { return }
+        
+        detailView.gameId = gameID
+        
+    }
     
 }
+
+
 //MARK: Delegate
-extension GamesViewController : GameListViewModelDelegate {
+extension GamesListViewController : GameListViewModelDelegate {
     func gamesLoaded() {
         DispatchQueue.main.async {
             

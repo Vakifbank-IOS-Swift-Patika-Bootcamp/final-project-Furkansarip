@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct GameDetailModel : Codable {
-    var results : [GameDetail]?
-}
-
 struct GameDetail : Codable {
     let id: Int
       let slug, name, released: String
@@ -23,6 +19,7 @@ struct GameDetail : Codable {
       let parentPlatforms: [ParentPlatform]
       let genres: [Genre]
     let developers : [Developers]
+    let description : String
 
       enum CodingKeys: String, CodingKey {
           case id, slug, name, released
@@ -35,6 +32,7 @@ struct GameDetail : Codable {
           case reviewsCount = "reviews_count"
           case parentPlatforms = "parent_platforms"
           case genres,developers
+          case description = "description_raw"
           
          
       }

@@ -14,7 +14,7 @@ class GameTableViewCell: UITableViewCell {
     @IBOutlet weak var gameRatingLabel: UILabel!
     
 
-    func configure(game : GamesModel){
+    func configure(game : GamesListModel){
         gameNameLabel.text = game.name
         gameRatingLabel.text = "\(game.rating)"
         guard let imageURL = URL(string: game.image ?? "") else { return }

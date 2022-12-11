@@ -111,7 +111,7 @@ struct NetworkManager {
     }
     
     
-    func getDetail(gameID:Int,completion:@escaping(_ result:Result<GameDetailModel,ErrorModel>)->Void){
+    func getDetail(gameID:Int,completion:@escaping(_ result:Result<GameDetail,ErrorModel>)->Void){
         let endpoint = "\(baseURL)/\(gameID)?key=\(API_KEY)"
         print(endpoint)
         guard let url = URL(string: endpoint) else {
@@ -133,7 +133,7 @@ struct NetworkManager {
             }
             do {
                 let decoder = JSONDecoder()
-                let detail = try decoder.decode(GameDetailModel.self, from: data)
+                let detail = try decoder.decode(GameDetail.self, from: data)
                 completion(.success(detail))
             }catch{
                 completion(.failure(.invalidData))

@@ -8,7 +8,7 @@
 import Foundation
 
 struct GameResponse : Codable {
-    var results : [GamesModel]
+    var results : [GamesListModel]
 }
 
 

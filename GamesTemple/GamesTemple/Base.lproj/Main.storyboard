@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MNI-PE-ZHW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IUw-bl-vks">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -62,7 +62,7 @@
         <!--Game List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GamesViewController" customModule="GamesTemple" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GamesListViewController" customModule="GamesTemple" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,17 +101,17 @@
                     <connections>
                         <outlet property="filterItemButton" destination="Dng-EP-WYC" id="2Xj-fi-C4A"/>
                         <outlet property="gamesTableView" destination="xjM-FN-K3V" id="X76-8f-d1g"/>
-                        <segue destination="MNI-PE-ZHW" kind="show" id="VPB-dq-pue"/>
+                        <segue destination="MNI-PE-ZHW" kind="show" identifier="gameDetail" id="VPB-dq-pue"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-816.92307692307691" y="945.4976303317535"/>
         </scene>
-        <!--View Controller-->
+        <!--Game Detail View Controller-->
         <scene sceneID="36a-bI-CC5">
             <objects>
-                <viewController id="MNI-PE-ZHW" sceneMemberID="viewController">
+                <viewController id="MNI-PE-ZHW" customClass="GameDetailViewController" customModule="GamesTemple" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="07b-O4-4Ha">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="930"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,7 +189,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpb-nr-lSf">
                                                 <rect key="frame" x="23" y="446.66666666666663" width="344" height="28"/>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="Platform">
+                                                    <fragment content="Supported Platform">
                                                         <attributes>
                                                             <font key="NSFont" size="24" name="SFMono-BoldItalic"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -326,6 +326,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="Z7A-ze-b5S"/>
                     <size key="freeformSize" width="390" height="930"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="Ada-6L-syH" id="y47-JY-QCU"/>
+                        <outlet property="gameImage" destination="0kw-sN-emD" id="h7R-5s-QU3"/>
+                        <outlet property="genreLabel" destination="yXW-YB-iQl" id="fim-6j-q4t"/>
+                        <outlet property="nameLabel" destination="8TV-XM-R3A" id="9mZ-tO-Ity"/>
+                        <outlet property="pcLogo" destination="unK-yN-u2u" id="1jN-Gg-IVY"/>
+                        <outlet property="phoneLogo" destination="55c-z9-4nV" id="a9e-hD-Ueg"/>
+                        <outlet property="playstationLogo" destination="k4g-Ul-89a" id="7mz-73-bPk"/>
+                        <outlet property="ratingLabel" destination="jH1-0s-Exl" id="uql-bd-BgC"/>
+                        <outlet property="ratingsCountLabel" destination="Ysc-2y-Qt0" id="m3b-hK-8rM"/>
+                        <outlet property="releasedLabel" destination="dp5-Cm-TRN" id="Mo2-Tm-GOF"/>
+                        <outlet property="suggestionCountLabel" destination="Za0-2g-VJf" id="jqa-nz-5ON"/>
+                        <outlet property="xboxLogo" destination="3M1-B0-X58" id="vMj-ZN-QzA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TId-AZ-icG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
