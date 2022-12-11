@@ -108,7 +108,7 @@
             </objects>
             <point key="canvasLocation" x="-816.92307692307691" y="945.4976303317535"/>
         </scene>
-        <!--Game Detail View Controller-->
+        <!--Game Detail-->
         <scene sceneID="36a-bI-CC5">
             <objects>
                 <viewController id="MNI-PE-ZHW" customClass="GameDetailViewController" customModule="GamesTemple" customModuleProvider="target" sceneMemberID="viewController">
@@ -230,29 +230,29 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="nCn-67-9Ht">
                                                 <rect key="frame" x="23" y="482.66666666666663" width="243" height="45"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playstation.logo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="k4g-Ul-89a">
-                                                        <rect key="frame" x="0.0" y="1" width="45" height="43"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k4g-Ul-89a">
+                                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="45" id="9TB-te-H5f"/>
                                                             <constraint firstAttribute="height" constant="45" id="qXX-kM-UFu"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xbox.logo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3M1-B0-X58">
-                                                        <rect key="frame" x="66" y="0.6666666666666643" width="45" height="44"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3M1-B0-X58">
+                                                        <rect key="frame" x="66" y="0.0" width="45" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="52W-BD-HD3"/>
                                                             <constraint firstAttribute="width" constant="45" id="Psq-xJ-6YR"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="laptopcomputer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="unK-yN-u2u">
-                                                        <rect key="frame" x="132" y="2.3333333333333321" width="45" height="40.333333333333343"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="unK-yN-u2u">
+                                                        <rect key="frame" x="132" y="0.0" width="45" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="45" id="2Gl-Cg-ojq"/>
                                                             <constraint firstAttribute="height" constant="45" id="bbU-Ww-2y1"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone.homebutton" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="55c-z9-4nV">
-                                                        <rect key="frame" x="198" y="0.6666666666666643" width="45" height="44.333333333333336"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="55c-z9-4nV">
+                                                        <rect key="frame" x="198" y="0.0" width="45" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="YxX-XX-CZY"/>
                                                             <constraint firstAttribute="width" constant="45" id="mRK-1q-Rvs"/>
@@ -324,10 +324,18 @@
                             <constraint firstItem="Gle-DD-DP5" firstAttribute="top" secondItem="4rC-lJ-l3q" secondAttribute="top" id="rVg-ot-aw0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Z7A-ze-b5S"/>
+                    <navigationItem key="navigationItem" title="Game Detail" id="Z7A-ze-b5S">
+                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="lue-gl-Qa4">
+                            <color key="tintColor" systemColor="systemPinkColor"/>
+                            <connections>
+                                <action selector="click:" destination="MNI-PE-ZHW" id="qHi-78-ulZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="390" height="930"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="Ada-6L-syH" id="y47-JY-QCU"/>
+                        <outlet property="favoriteButton" destination="lue-gl-Qa4" id="eWV-8Z-r2p"/>
                         <outlet property="gameImage" destination="0kw-sN-emD" id="h7R-5s-QU3"/>
                         <outlet property="genreLabel" destination="yXW-YB-iQl" id="fim-6j-q4t"/>
                         <outlet property="nameLabel" destination="8TV-XM-R3A" id="9mZ-tO-Ity"/>
@@ -368,15 +376,15 @@
     <resources>
         <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="79"/>
-        <image name="iphone.homebutton" catalog="system" width="112" height="128"/>
-        <image name="laptopcomputer" catalog="system" width="128" height="71"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="note.text" catalog="system" width="128" height="107"/>
-        <image name="playstation.logo" catalog="system" width="128" height="92"/>
         <image name="square.and.arrow.up.circle" catalog="system" width="128" height="123"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
-        <image name="xbox.logo" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

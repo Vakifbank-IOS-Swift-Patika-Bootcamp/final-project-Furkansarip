@@ -86,6 +86,7 @@ extension GamesListViewController : UISearchResultsUpdating,UISearchBarDelegate 
         viewModel.games = filteredGames?.filter({$0.name.lowercased().contains(text)})
                 if text == "" {
                     viewModel.games = filteredGames
+                    print(viewModel.games)
                 }
                 gamesTableView.reloadData()
             }
@@ -114,7 +115,6 @@ extension GamesListViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let id = viewModel.getGameId(at: indexPath.row)
         gameID = id
-        print(gameID)
         performSegue(withIdentifier: "gameDetail", sender: nil)
     }
     

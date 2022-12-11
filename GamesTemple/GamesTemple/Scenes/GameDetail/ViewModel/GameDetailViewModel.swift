@@ -26,8 +26,8 @@ class GameDetailViewModel : GameDetailViewModelProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let gameDetail):
-                self.delegate?.gameDetailLoaded()
                 self.gameDetail = gameDetail
+                self.delegate?.gameDetailLoaded()
             case .failure(let error):
                 self.delegate?.gameDetailFail(error: error)
                 
