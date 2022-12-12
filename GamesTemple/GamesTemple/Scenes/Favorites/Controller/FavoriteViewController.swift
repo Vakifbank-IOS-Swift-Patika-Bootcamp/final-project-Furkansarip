@@ -7,11 +7,13 @@
 
 import UIKit
 
-class FavoriteViewController: UIViewController {
+class FavoriteViewController: BaseViewController {
     @IBOutlet var favoriteListTableView : UITableView!
     var favoriteGame = [FavoriteGame]()
+    var favoriteId : Int?
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(favoriteGame)
         favoriteListTableView.delegate = self
         favoriteListTableView.dataSource = self
         favoriteListTableView.register(UINib(nibName: "FavoriteTableViewCell", bundle: nil), forCellReuseIdentifier: "FavoriteCell")
@@ -24,7 +26,7 @@ class FavoriteViewController: UIViewController {
     func fetchFavoriteGames() {
         favoriteGame = CoreDataManager.shared.getFavoriteGame()
     }
-
+    
 }
 
 
@@ -45,12 +47,35 @@ extension FavoriteViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let favoriteGameId = favoriteGame[indexPath.row].gamesId else { return }
+        favoriteId = Int(favoriteGameId)
         performSegue(withIdentifier: "favoriteDetail", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as? GameDetailViewController
         destination?.isFavorite = true
-        destination?.gameId = 3498
+        destination?.gameId = favoriteId
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let object = favoriteGame[indexPath.row]
+            CoreDataManager().managedContext.delete(object)
+            favoriteGame.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            do {
+                try  CoreDataManager().managedContext.save()
+            } catch {
+                showErrorAlert(message: "Favorite Game is not deleted!") {
+                    print("Error Log : CoreData Delete")
+                }
+            }
+        }
     }
     
 }

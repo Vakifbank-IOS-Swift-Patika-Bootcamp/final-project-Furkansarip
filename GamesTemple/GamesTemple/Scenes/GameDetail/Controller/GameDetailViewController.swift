@@ -64,7 +64,6 @@ final class GameDetailViewController: BaseViewController {
         descriptionLabel.minimumScaleFactor = 0.6
         
         guard let id = gameId else { return }
-        print(id)
         viewModel.delegate = self
         viewModel.fetchGame(id: id)
       
@@ -75,12 +74,15 @@ final class GameDetailViewController: BaseViewController {
         isFavorite = !isFavorite
         if (isFavorite) {
             favoriteButton.image = UIImage(systemName: "heart.fill")
-            guard let detailName = viewModel.gameDetail?.name,let detailImage = viewModel.gameDetail?.backgroundImage else { return }
-            CoreDataManager.shared.saveGame(gameName:detailName, gameImage:detailImage)
+            print(gameId)
+            guard let detailName = viewModel.gameDetail?.name,let detailImage = viewModel.gameDetail?.backgroundImage,let favoriteId = gameId else { return }
+            print(favoriteId)
+            CoreDataManager.shared.saveGame(gameName:detailName, gameImage:detailImage,id: String(favoriteId))
+            
         } else {
             favoriteButton.image = UIImage(systemName: "heart")
             guard let deleteGameName = viewModel.gameDetail?.name else { return }
-            CoreDataManager.shared.deleteFavorite(name: deleteGameName)
+            CoreDataManager.shared.deleteFavoriteGame(name: deleteGameName)
         }
     }
     

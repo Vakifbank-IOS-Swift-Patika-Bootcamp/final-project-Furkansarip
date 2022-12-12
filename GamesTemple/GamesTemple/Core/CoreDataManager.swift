@@ -18,11 +18,12 @@ final class CoreDataManager {
         
     }
     
-    func saveGame(gameName:String,gameImage:String) -> FavoriteGame? {
+    func saveGame(gameName:String,gameImage:String,id:String) -> FavoriteGame? {
         let entity = NSEntityDescription.entity(forEntityName: "FavoriteGame", in: managedContext)!
         let favoriteGame = NSManagedObject(entity: entity, insertInto: managedContext)
         favoriteGame.setValue(gameImage, forKey: "image")
         favoriteGame.setValue(gameName, forKey: "name")
+        favoriteGame.setValue(id, forKey: "gamesId")
         do {
             try managedContext.save()
             return favoriteGame as? FavoriteGame
@@ -32,7 +33,7 @@ final class CoreDataManager {
         return nil
     }
     
-    func deleteFavorite(name:String){
+    func deleteFavoriteGame(name:String){
         let fetch = NSFetchRequest<NSManagedObject>(entityName: "FavoriteGame")
         fetch.predicate = NSPredicate(format: "name = %@", name)
         fetch.returnsObjectsAsFaults = false
