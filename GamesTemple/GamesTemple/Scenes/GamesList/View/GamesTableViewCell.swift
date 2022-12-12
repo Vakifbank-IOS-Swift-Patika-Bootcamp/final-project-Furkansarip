@@ -22,4 +22,8 @@ class GamesTableViewCell: UITableViewCell {
         
     }
     
+    override func prepareForReuse() {
+        gameImage.image = nil
+    }
+    
 }

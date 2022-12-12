@@ -57,26 +57,33 @@ final class GameDetailViewController: BaseViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        if isFavorite {
+            favoriteButton.image = UIImage(systemName: "heart.fill")
+        }
+        descriptionLabel.adjustsFontSizeToFitWidth = true
+        descriptionLabel.minimumScaleFactor = 0.6
+        
         guard let id = gameId else { return }
         print(id)
         viewModel.delegate = self
         viewModel.fetchGame(id: id)
-        logosImage = [pcLogo,xboxLogo,phoneLogo,playstationLogo]
+      
         
     }
-    @IBAction func click(_ sender: Any) {
+    
+    @IBAction func favoriteAction(_ sender: Any) {
         isFavorite = !isFavorite
         if (isFavorite) {
             favoriteButton.image = UIImage(systemName: "heart.fill")
+            guard let detailName = viewModel.gameDetail?.name,let detailImage = viewModel.gameDetail?.backgroundImage else { return }
+            CoreDataManager.shared.saveGame(gameName:detailName, gameImage:detailImage)
         } else {
             favoriteButton.image = UIImage(systemName: "heart")
+            guard let deleteGameName = viewModel.gameDetail?.name else { return }
+            CoreDataManager.shared.deleteFavorite(name: deleteGameName)
         }
-        
     }
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
-
+    
 }
 
 
@@ -84,11 +91,11 @@ extension GameDetailViewController : GameDetailViewModelDelegate {
     func gameDetailLoaded() {
         genreList = viewModel.gameDetail?.genres
         DispatchQueue.main.async {
-            self.nameLabel.text = self.viewModel.gameDetail?.name
-            self.suggestionCountLabel.text = "\(self.viewModel.gameDetail?.suggestionsCount ?? 0)"
-            self.ratingLabel.text = "\(self.viewModel.gameDetail?.rating ?? 0.0)"
-            self.ratingsCountLabel.text = "\(self.viewModel.gameDetail?.ratingsCount ?? 0)"
-            self.releasedLabel.text = self.viewModel.gameDetail?.released
+            self.nameLabel.text = "Name: \(self.viewModel.gameDetail?.name ?? "")"
+            self.suggestionCountLabel.text = "Suggestion Count : \(self.viewModel.gameDetail?.suggestionsCount ?? 0)"
+            self.ratingLabel.text = "Rating : \(self.viewModel.gameDetail?.rating ?? 0.0)"
+            self.ratingsCountLabel.text = "Ratings Count : \(self.viewModel.gameDetail?.ratingsCount ?? 0)"
+            self.releasedLabel.text = "Released : \(self.viewModel.gameDetail?.released ?? "")"
             self.genreLabel.text = self.genreText
             self.descriptionLabel.text = self.viewModel.gameDetail?.description
             self.genreList? = self.viewModel.gameDetail?.genres ?? []

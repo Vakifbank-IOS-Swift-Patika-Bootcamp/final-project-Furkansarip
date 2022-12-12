@@ -8,14 +8,14 @@
 import Foundation
 
 struct GamesListModel: Codable {
-    let id: Int
+    let id: Int?
     let name: String
     let released: String?
     let image: String?
     let rating: Float
     let genres: [Genres]
     let platforms: [Platforms]?
-    let ratings: [Ratings]
+    let ratings: [Ratings]?
     let description: String?
     
     enum CodingKeys: String, CodingKey {

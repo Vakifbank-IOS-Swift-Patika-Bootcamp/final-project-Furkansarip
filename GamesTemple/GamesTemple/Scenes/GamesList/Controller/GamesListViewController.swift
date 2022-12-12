@@ -40,25 +40,19 @@ final class GamesListViewController: BaseViewController {
         viewModel.fetchGames(page: 1)
         configureSearch()
         dropDownMenu.anchorView = filterItemButton
-        
+        filteredGames = viewModel.games
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        indicator.startAnimating()
-        filteredGames = viewModel.games
-        self.indicator.stopAnimating()
-    }
+    
  //MARK: FilterButton
     @IBAction func filterButtonClicked(_ sender: Any) {
         dropDownMenu.show()
         dropDownMenu.selectionAction =  { [unowned self] (index: Int, item: String) in
             switch item {
             case "Top 20 Highest Rating":
-                indicator.startAnimating()
                 viewModel.getHighestRating()
-                indicator.stopAnimating()
-            case "Upcoming Games":
+            case "2022 Games":
                 viewModel.upcomingGames()
             case "Clear Filter":
                 viewModel.fetchGames(page: 1)
@@ -86,7 +80,7 @@ extension GamesListViewController : UISearchResultsUpdating,UISearchBarDelegate 
         viewModel.games = filteredGames?.filter({$0.name.lowercased().contains(text)})
                 if text == "" {
                     viewModel.games = filteredGames
-                    print(viewModel.games)
+                    
                 }
                 gamesTableView.reloadData()
             }

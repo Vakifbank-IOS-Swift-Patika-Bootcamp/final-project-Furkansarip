@@ -24,21 +24,37 @@
             </objects>
             <point key="canvasLocation" x="92.307692307692307" y="347.63033175355446"/>
         </scene>
-        <!--Favorites-->
+        <!--Your Favorite List-->
         <scene sceneID="k0M-Eq-uJ7">
             <objects>
-                <viewController id="KtU-SB-Tqx" sceneMemberID="viewController">
+                <viewController id="KtU-SB-Tqx" customClass="FavoriteViewController" customModule="GamesTemple" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XZi-zU-BOV">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="n4d-F2-1U9">
+                                <rect key="frame" x="0.0" y="91" width="390" height="670"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="t7B-i9-bkm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="n4d-F2-1U9" firstAttribute="top" secondItem="t7B-i9-bkm" secondAttribute="top" id="4T2-gu-EDz"/>
+                            <constraint firstItem="t7B-i9-bkm" firstAttribute="trailing" secondItem="n4d-F2-1U9" secondAttribute="trailing" id="QCp-dj-jLt"/>
+                            <constraint firstItem="n4d-F2-1U9" firstAttribute="leading" secondItem="t7B-i9-bkm" secondAttribute="leading" id="T5F-az-BTb"/>
+                            <constraint firstItem="t7B-i9-bkm" firstAttribute="bottom" secondItem="n4d-F2-1U9" secondAttribute="bottom" id="j7K-zt-kDX"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Favorites" image="star.fill" catalog="system" id="rsY-Jz-aol"/>
+                    <navigationItem key="navigationItem" title="Your Favorite List" id="Jk9-xR-ehm"/>
+                    <connections>
+                        <outlet property="favoriteListTableView" destination="n4d-F2-1U9" id="YDR-ge-NR0"/>
+                        <segue destination="MNI-PE-ZHW" kind="show" identifier="favoriteDetail" id="LNP-dh-yUK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Opf-BB-F2q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-836" y="-260"/>
+            <point key="canvasLocation" x="350.76923076923077" y="-305.68720379146919"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="u60-Sf-le3">
@@ -51,7 +67,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="lCK-rS-MBD" kind="relationship" relationship="viewControllers" id="GJh-d7-cqX"/>
-                        <segue destination="KtU-SB-Tqx" kind="relationship" relationship="viewControllers" id="PtD-Uy-ypl"/>
+                        <segue destination="f35-Am-7fB" kind="relationship" relationship="viewControllers" id="PtD-Uy-ypl"/>
                         <segue destination="wAn-nG-Vid" kind="relationship" relationship="viewControllers" id="Pod-Iz-mG2"/>
                     </connections>
                 </tabBarController>
@@ -120,7 +136,7 @@
                                 <rect key="frame" x="0.0" y="91" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECs-pm-JwV">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="850"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1000"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0kw-sN-emD">
                                                 <rect key="frame" x="75" y="41" width="240" height="158.66666666666669"/>
@@ -200,13 +216,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre : " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXW-YB-iQl">
-                                                <rect key="frame" x="23" y="572.66666666666663" width="344" height="20.333333333333371"/>
+                                                <rect key="frame" x="23" y="581.66666666666663" width="344" height="20.333333333333371"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQs-7F-y0K">
-                                                <rect key="frame" x="23" y="602" width="344" height="28"/>
+                                                <rect key="frame" x="23" y="611" width="344" height="28"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Description">
                                                         <attributes>
@@ -219,9 +235,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ada-6L-syH">
-                                                <rect key="frame" x="23" y="638" width="344" height="130"/>
+                                                <rect key="frame" x="23" y="647" width="344" height="250"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="130" id="HlA-AC-sed"/>
+                                                    <constraint firstAttribute="height" constant="250" id="HlA-AC-sed"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -261,7 +277,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxn-k5-gEy">
-                                                <rect key="frame" x="23" y="536.66666666666663" width="344" height="28"/>
+                                                <rect key="frame" x="23" y="545.66666666666663" width="344" height="28"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Genre">
                                                         <attributes>
@@ -278,8 +294,7 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Ada-6L-syH" secondAttribute="trailing" constant="23" id="2Uo-H1-wAX"/>
                                             <constraint firstItem="yXW-YB-iQl" firstAttribute="leading" secondItem="ECs-pm-JwV" secondAttribute="leading" constant="23" id="2Zc-pH-fKs"/>
-                                            <constraint firstItem="jxn-k5-gEy" firstAttribute="top" secondItem="nCn-67-9Ht" secondAttribute="bottom" constant="9" id="35z-GO-adf"/>
-                                            <constraint firstAttribute="height" constant="850" id="78B-Uk-UUH"/>
+                                            <constraint firstItem="jxn-k5-gEy" firstAttribute="top" secondItem="nCn-67-9Ht" secondAttribute="bottom" constant="18" id="35z-GO-adf"/>
                                             <constraint firstItem="0kw-sN-emD" firstAttribute="leading" secondItem="ECs-pm-JwV" secondAttribute="leading" constant="75" id="FIC-TJ-7y6"/>
                                             <constraint firstItem="yXW-YB-iQl" firstAttribute="top" secondItem="jxn-k5-gEy" secondAttribute="bottom" constant="8" id="JSf-cr-7ta"/>
                                             <constraint firstItem="wpb-nr-lSf" firstAttribute="leading" secondItem="ECs-pm-JwV" secondAttribute="leading" constant="23" id="P5P-5B-DIX"/>
@@ -317,6 +332,7 @@
                         <viewLayoutGuide key="safeArea" id="4rC-lJ-l3q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ECs-pm-JwV" firstAttribute="height" secondItem="07b-O4-4Ha" secondAttribute="height" multiplier="1.07527" id="AJl-Y9-D4H"/>
                             <constraint firstItem="Gle-DD-DP5" firstAttribute="trailing" secondItem="4rC-lJ-l3q" secondAttribute="trailing" id="GMM-6a-DfH"/>
                             <constraint firstItem="ECs-pm-JwV" firstAttribute="width" secondItem="07b-O4-4Ha" secondAttribute="width" id="Udr-2H-NTY"/>
                             <constraint firstItem="Gle-DD-DP5" firstAttribute="leading" secondItem="4rC-lJ-l3q" secondAttribute="leading" id="WQB-9N-e94"/>
@@ -328,7 +344,7 @@
                         <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="lue-gl-Qa4">
                             <color key="tintColor" systemColor="systemPinkColor"/>
                             <connections>
-                                <action selector="click:" destination="MNI-PE-ZHW" id="qHi-78-ulZ"/>
+                                <action selector="favoriteAction:" destination="MNI-PE-ZHW" id="J92-BB-B8n"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -351,7 +367,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TId-AZ-icG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="90.769230769230759" y="1037.914691943128"/>
+            <point key="canvasLocation" x="966" y="975"/>
         </scene>
         <!--Games-->
         <scene sceneID="zQh-XX-PZn">
@@ -372,14 +388,36 @@
             </objects>
             <point key="canvasLocation" x="-1746.1538461538462" y="945.4976303317535"/>
         </scene>
+        <!--Favorites-->
+        <scene sceneID="aYc-fR-2Jn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f35-Am-7fB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="1" title="Favorites" image="heart.rectangle.fill" catalog="system" id="rsY-Jz-aol"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DRI-LC-gLy">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KtU-SB-Tqx" kind="relationship" relationship="rootViewController" id="Ou7-rC-lbD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tFm-nH-V53" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-578.46153846153845" y="-305.68720379146919"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="LNP-dh-yUK"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="79"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="note.text" catalog="system" width="128" height="107"/>
         <image name="square.and.arrow.up.circle" catalog="system" width="128" height="123"/>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

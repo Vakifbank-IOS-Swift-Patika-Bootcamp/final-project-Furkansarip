@@ -79,7 +79,7 @@ struct NetworkManager {
     }
     
     func upcomingGames(page:Int,completion:@escaping(_ result:Result<GameResponse,ErrorModel>)->Void){
-        let endpoint = "\(baseURL)?key=\(API_KEY)&dates=2022-12-31,2026-12-31&ordering=-added&page=\(page)"
+        let endpoint = "\(baseURL)?key=\(API_KEY)&dates=2021-12-31,2022-12-31&ordering=-added&page=\(page)"
         print(endpoint)
         guard let url = URL(string: endpoint) else {
             completion(.failure(.invalidURL))
@@ -128,14 +128,13 @@ struct NetworkManager {
             }
             guard let data = data else {
                 completion(.failure(.invalidData))
-                print("error")
                 return
             }
             do {
                 let decoder = JSONDecoder()
                 let detail = try decoder.decode(GameDetail.self, from: data)
                 completion(.success(detail))
-            }catch{
+            } catch {
                 completion(.failure(.invalidData))
             }
             
