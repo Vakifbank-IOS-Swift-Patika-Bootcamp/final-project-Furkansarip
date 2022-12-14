@@ -75,12 +75,12 @@ final class GameDetailViewController: BaseViewController {
         if (isFavorite) {
             favoriteButton.image = UIImage(systemName: "heart.fill")
             guard let detailName = viewModel.gameDetail?.name,let detailImage = viewModel.gameDetail?.backgroundImage,let favoriteId = gameId else { return }
-            CoreDataManager.shared.saveGame(gameName:detailName, gameImage:detailImage,id: String(favoriteId))
+            FavoriteCoreDataManager.shared.saveGame(gameName:detailName, gameImage:detailImage,id: String(favoriteId))
             
         } else {
             favoriteButton.image = UIImage(systemName: "heart")
             guard let deleteGameName = viewModel.gameDetail?.name else { return }
-            CoreDataManager.shared.deleteFavoriteGame(name: deleteGameName)
+            FavoriteCoreDataManager.shared.deleteFavoriteGame(name: deleteGameName)
         }
     }
     

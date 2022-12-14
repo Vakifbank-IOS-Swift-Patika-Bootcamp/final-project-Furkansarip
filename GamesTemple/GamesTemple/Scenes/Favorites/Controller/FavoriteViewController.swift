@@ -24,7 +24,7 @@ class FavoriteViewController: BaseViewController {
         favoriteListTableView.reloadData()
     }
     func fetchFavoriteGames() {
-        favoriteGame = CoreDataManager.shared.getFavoriteGame()
+        favoriteGame = FavoriteCoreDataManager.shared.getFavoriteGame()
     }
     
 }
@@ -64,12 +64,12 @@ extension FavoriteViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let object = favoriteGame[indexPath.row]
-            CoreDataManager().managedContext.delete(object)
+            FavoriteCoreDataManager().managedContext.delete(object)
             favoriteGame.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
             do {
-                try  CoreDataManager().managedContext.save()
+                try  FavoriteCoreDataManager().managedContext.save()
             } catch {
                 showErrorAlert(message: "Favorite Game is not deleted!") {
                     print("Error Log : CoreData Delete")

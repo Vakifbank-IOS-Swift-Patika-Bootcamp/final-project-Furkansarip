@@ -15,8 +15,8 @@ final class NotesViewController: BaseViewController {
             notesTableView.dataSource = self
         }
     }
-    var viewModel = NotesViewModel()
-    var games = [NoteGamesModel]()
+   
+    var games = [Note]()
     override func viewDidLoad() {
         super.viewDidLoad()
         notesTableView.register(UINib(nibName: "NotesTableViewCell", bundle: nil), forCellReuseIdentifier: "NoteCell")
@@ -29,7 +29,7 @@ final class NotesViewController: BaseViewController {
 
 extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,7 +40,7 @@ extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 132
     }
     
     

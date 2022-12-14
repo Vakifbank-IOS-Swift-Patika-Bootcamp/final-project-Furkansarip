@@ -9,8 +9,8 @@
 import UIKit
 import CoreData
 
-final class CoreDataManager {
-    static let shared = CoreDataManager()
+final class FavoriteCoreDataManager {
+    static let shared = FavoriteCoreDataManager()
     let managedContext : NSManagedObjectContext!
     public init(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

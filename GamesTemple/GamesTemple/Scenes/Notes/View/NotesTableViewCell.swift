@@ -19,7 +19,7 @@ class NotesTableViewCell: UITableViewCell {
         
         cosmosView.settings.starSize = 15
         cosmosView.settings.starMargin = 3.1
-        cosmosView.settings
+       
         gameLabel.text = test
         nameLabel.text = test
         
