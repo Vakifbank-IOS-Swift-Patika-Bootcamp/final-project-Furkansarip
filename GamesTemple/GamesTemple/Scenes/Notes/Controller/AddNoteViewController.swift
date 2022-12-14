@@ -7,23 +7,81 @@
 
 import UIKit
 
-class AddNoteViewController: UIViewController {
-
+class AddNoteViewController: BaseViewController {
+    
+    @IBOutlet weak var cosmosView: CosmosView!
+    @IBOutlet weak var gameTextField: UITextField!
+    @IBOutlet weak var gameImageView: UIImageView!
+    @IBOutlet weak var headerTextField: UITextField!
+    var games : [NoteGamesModel]?
+    var viewModel = NotesViewModel()
+    let gamePicker = UIPickerView()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        gameTextField.inputView = gamePicker
+        gamePicker.delegate = self
+        gamePicker.dataSource = self
+        createToolbar()
+        viewModel.delegate = self
+        viewModel.fecthGames()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func createToolbar(){
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissPicker))
+        toolbar.setItems([doneButton], animated: false)
+        
+        toolbar.isUserInteractionEnabled = true
+        gameTextField.inputAccessoryView = toolbar
+        
+        
     }
-    */
+    
+    @objc func dismissPicker() {
+        view.endEditing(true)
+    }
+    @IBAction func addNoteButton(_ sender: Any) {
+        
+    }
+    
+    
+}
 
+extension AddNoteViewController : UIPickerViewDelegate,UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return games?.count ?? 0
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return games?[row].name
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        gameTextField.text = games?[row].name
+    }
+}
+
+extension AddNoteViewController : NotesViewDelegate {
+    func noteLoaded() {
+        DispatchQueue.main.async {
+            self.games = self.viewModel.games
+            self.gamePicker.reloadInputViews()
+            
+        }
+        
+    }
+    
+    func noteFailed(error: ErrorModel) {
+        showErrorAlert(message: error.rawValue) {
+            print("Error Log : NotesViewController")
+        }
+    }
+    
+    
 }

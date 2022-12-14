@@ -38,7 +38,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="notesTableView" destination="gx1-Oy-9x8" id="9X5-om-gAr"/>
-                        <segue destination="YN1-LX-VCo" kind="presentation" id="0vy-I4-8aw"/>
+                        <segue destination="YN1-LX-VCo" kind="presentation" identifier="addNoteView" id="0vy-I4-8aw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8TX-Pu-hIG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -98,6 +98,9 @@
                                     <imageReference key="image" image="note.text.badge.plus" catalog="system" variableValue="0.0"/>
                                     <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="addNoteButton:" destination="YN1-LX-VCo" eventType="touchUpInside" id="LKq-KC-wO3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lIb-XJ-xi9"/>
@@ -118,6 +121,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eGO-IW-Zyh"/>
+                    <connections>
+                        <outlet property="cosmosView" destination="joj-v5-RgD" id="owP-4a-51a"/>
+                        <outlet property="gameImageView" destination="VaP-7j-IuH" id="qNm-nt-J2U"/>
+                        <outlet property="gameTextField" destination="Wcq-p1-Bjy" id="1Dd-pC-9rr"/>
+                        <outlet property="headerTextField" destination="3sL-eY-Mgc" id="fC6-Yz-hJb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gj2-qH-H8Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

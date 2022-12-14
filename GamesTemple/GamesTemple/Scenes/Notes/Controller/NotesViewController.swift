@@ -38,6 +38,9 @@ extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
         cell.configure(test: "Hello")
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "addNoteView", sender: nil)
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 132
@@ -46,16 +49,4 @@ extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension NotesViewController : NotesViewDelegate {
-    func noteLoaded() {
-        
-    }
-    
-    func noteFailed(error: ErrorModel) {
-        showErrorAlert(message: error.rawValue) {
-            print("Error Log : NotesViewController")
-        }
-    }
-    
-    
-}
+

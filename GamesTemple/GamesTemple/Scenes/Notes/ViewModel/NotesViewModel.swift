@@ -18,16 +18,18 @@ protocol NotesViewDelegate : AnyObject {
     func noteFailed(error:ErrorModel)
 }
 
-class NotesViewModel : NotesViewModelProtocol {
+final class NotesViewModel : NotesViewModelProtocol {
   
     weak var delegate: NotesViewDelegate?
     var games : [NoteGamesModel]?
     
     func fecthGames() {
-        NetworkManager.shared.getNoteGames { result in
+        NetworkManager.shared.getNoteGames { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let noteGames):
                 self.games = noteGames.results
+                print(self.games?[0])
                 self.delegate?.noteLoaded()
             case .failure(let error):
                 self.delegate?.noteFailed(error: error)
