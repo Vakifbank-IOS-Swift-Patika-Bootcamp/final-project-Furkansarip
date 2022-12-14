@@ -11,7 +11,7 @@ import DropDown
 final class GamesListViewController: BaseViewController {
     let dropDownMenu : DropDown = {
         let dropDownMenu = DropDown()
-        dropDownMenu.dataSource = ["Top 20 Highest Rating","Upcoming Games","Clear Filter"]
+        dropDownMenu.dataSource = ["Top 20 Highest Rating","2022 Games","Clear Filter"]
         let images = ["trophy.circle","timer.circle","trash.circle"]
         dropDownMenu.cellNib = UINib(nibName: "DropDownCell", bundle: nil)
         dropDownMenu.customCellConfiguration = { (index: Index, item: String, cell: DropDownCell) -> Void in
@@ -57,7 +57,7 @@ final class GamesListViewController: BaseViewController {
             case "Clear Filter":
                 viewModel.fetchGames(page: 1)
             default:
-                print("test")
+                print("")
             }
           }
     }

@@ -8,21 +8,40 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Notes-->
+        <!--Notes For Game-->
         <scene sceneID="zy5-Bh-bdf">
             <objects>
-                <viewController id="wAn-nG-Vid" sceneMemberID="viewController">
+                <viewController id="wAn-nG-Vid" customClass="NotesViewController" customModule="GamesTemple" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xkj-t2-uzn">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gx1-Oy-9x8">
+                                <rect key="frame" x="0.0" y="91" width="390" height="670"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="hCW-L7-Ecm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gx1-Oy-9x8" firstAttribute="top" secondItem="hCW-L7-Ecm" secondAttribute="top" id="FnD-62-nGB"/>
+                            <constraint firstItem="hCW-L7-Ecm" firstAttribute="bottom" secondItem="gx1-Oy-9x8" secondAttribute="bottom" id="WIy-Fk-A7v"/>
+                            <constraint firstItem="hCW-L7-Ecm" firstAttribute="trailing" secondItem="gx1-Oy-9x8" secondAttribute="trailing" id="aaP-Po-Sss"/>
+                            <constraint firstItem="gx1-Oy-9x8" firstAttribute="leading" secondItem="hCW-L7-Ecm" secondAttribute="leading" id="rPf-WQ-CWO"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="Notes" image="note.text" catalog="system" id="jB3-hY-33m"/>
+                    <navigationItem key="navigationItem" title="Notes For Game" id="ul9-6o-Wpr">
+                        <barButtonItem key="rightBarButtonItem" image="plus.circle.fill" catalog="system" id="Rxr-ph-R4x">
+                            <color key="tintColor" systemColor="systemPinkColor"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="notesTableView" destination="gx1-Oy-9x8" id="9X5-om-gAr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8TX-Pu-hIG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92.307692307692307" y="347.63033175355446"/>
+            <point key="canvasLocation" x="1945" y="43"/>
         </scene>
         <!--Your Favorite List-->
         <scene sceneID="k0M-Eq-uJ7">
@@ -64,11 +83,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemPinkColor"/>
+                        <color key="selectedImageTintColor" systemColor="systemPinkColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="lCK-rS-MBD" kind="relationship" relationship="viewControllers" id="GJh-d7-cqX"/>
                         <segue destination="f35-Am-7fB" kind="relationship" relationship="viewControllers" id="PtD-Uy-ypl"/>
-                        <segue destination="wAn-nG-Vid" kind="relationship" relationship="viewControllers" id="Pod-Iz-mG2"/>
+                        <segue destination="rn7-EF-ukA" kind="relationship" relationship="viewControllers" id="Pod-Iz-mG2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Te7-tR-Bdm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -367,7 +388,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TId-AZ-icG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="966" y="975"/>
+            <point key="canvasLocation" x="349" y="945"/>
         </scene>
         <!--Games-->
         <scene sceneID="zQh-XX-PZn">
@@ -392,7 +413,7 @@
         <scene sceneID="aYc-fR-2Jn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f35-Am-7fB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Favorites" image="heart.rectangle.fill" catalog="system" id="rsY-Jz-aol"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Favorites" image="suit.heart.fill" catalog="system" id="rsY-Jz-aol"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DRI-LC-gLy">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
@@ -407,6 +428,25 @@
             </objects>
             <point key="canvasLocation" x="-578.46153846153845" y="-305.68720379146919"/>
         </scene>
+        <!--Notes-->
+        <scene sceneID="JVX-SD-VHl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rn7-EF-ukA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="2" title="Notes" image="note.text" catalog="system" id="jB3-hY-33m"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WzF-Mw-Ldw">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wAn-nG-Vid" kind="relationship" relationship="rootViewController" id="L4L-6a-Pre"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ls-aF-rLd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1174" y="43"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="LNP-dh-yUK"/>
@@ -415,9 +455,10 @@
         <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="79"/>
         <image name="heart" catalog="system" width="128" height="107"/>
-        <image name="heart.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="note.text" catalog="system" width="128" height="107"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="square.and.arrow.up.circle" catalog="system" width="128" height="123"/>
+        <image name="suit.heart.fill" catalog="system" width="128" height="107"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
