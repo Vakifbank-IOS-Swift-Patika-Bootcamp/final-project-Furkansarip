@@ -7,26 +7,26 @@
 
 import UIKit
 
+
 class NotesTableViewCell: UITableViewCell {
 
-    @IBOutlet var labeltest : UILabel!
+    @IBOutlet weak var gameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var cosmosView: CosmosView!
+    
+    
+    func configure(test : String){
+        
+        cosmosView.settings.starSize = 15
+        cosmosView.settings.starMargin = 3.1
+        cosmosView.settings
+        gameLabel.text = test
+        nameLabel.text = test
+        
+    }
 
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(labeltest)
-        labeltest.text = "hello"
-        labeltest.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            labeltest.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            labeltest.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            labeltest.heightAnchor.constraint(equalToConstant: 60),
-            labeltest.widthAnchor.constraint(equalToConstant: 60), ])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+   
     
 }
 
