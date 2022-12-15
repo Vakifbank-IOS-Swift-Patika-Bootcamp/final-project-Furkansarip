@@ -34,11 +34,14 @@
                     <navigationItem key="navigationItem" title="Notes For Game" id="ul9-6o-Wpr">
                         <barButtonItem key="rightBarButtonItem" image="plus.circle.fill" catalog="system" id="Rxr-ph-R4x">
                             <color key="tintColor" systemColor="systemPinkColor"/>
+                            <connections>
+                                <action selector="addNotesButton:" destination="wAn-nG-Vid" id="5GZ-g0-D4B"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="notesTableView" destination="gx1-Oy-9x8" id="9X5-om-gAr"/>
-                        <segue destination="YN1-LX-VCo" kind="presentation" identifier="addNoteView" id="0vy-I4-8aw"/>
+                        <segue destination="YN1-LX-VCo" kind="show" identifier="addNoteView" id="0vy-I4-8aw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8TX-Pu-hIG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -48,19 +51,19 @@
         <!--Add Note View Controller-->
         <scene sceneID="Y6N-F3-S0j">
             <objects>
-                <viewController id="YN1-LX-VCo" customClass="AddNoteViewController" customModule="GamesTemple" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNoteViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YN1-LX-VCo" customClass="AddNoteViewController" customModule="GamesTemple" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="37Z-Zn-IHn">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VaP-7j-IuH">
-                                <rect key="frame" x="72" y="80" width="246" height="216"/>
+                                <rect key="frame" x="72" y="124" width="246" height="216"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="216" id="2Uf-2z-lux"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="idV-ym-klI">
-                                <rect key="frame" x="16" y="396" width="358" height="107"/>
+                                <rect key="frame" x="16" y="440" width="358" height="221"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Note Header" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3sL-eY-Mgc">
                                         <rect key="frame" x="0.0" y="0.0" width="358" height="34"/>
@@ -72,10 +75,30 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a Note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kWQ-Ud-Cbd">
+                                        <rect key="frame" x="0.0" y="146" width="358" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="eqc-ZP-x6h"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFx-aw-wHS">
+                                <rect key="frame" x="130" y="717" width="131" height="34.333333333333371"/>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Add Note" imagePadding="8">
+                                    <imageReference key="image" image="note.text.badge.plus" catalog="system" variableValue="0.0"/>
+                                    <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addNoteButton:" destination="YN1-LX-VCo" eventType="touchUpInside" id="LKq-KC-wO3"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="joj-v5-RgD" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="83" y="553" width="224" height="20"/>
+                                <rect key="frame" x="83" y="682" width="224" height="20"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Rate This Game"/>
@@ -90,34 +113,22 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFx-aw-wHS">
-                                <rect key="frame" x="131" y="647" width="131" height="34.333333333333371"/>
-                                <color key="tintColor" systemColor="systemIndigoColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Add Note" imagePadding="8">
-                                    <imageReference key="image" image="note.text.badge.plus" catalog="system" variableValue="0.0"/>
-                                    <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="addNoteButton:" destination="YN1-LX-VCo" eventType="touchUpInside" id="LKq-KC-wO3"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lIb-XJ-xi9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="joj-v5-RgD" firstAttribute="top" secondItem="idV-ym-klI" secondAttribute="bottom" constant="50" id="4EY-DR-GAd"/>
-                            <constraint firstItem="joj-v5-RgD" firstAttribute="leading" secondItem="lIb-XJ-xi9" secondAttribute="leading" constant="83" id="9WP-2t-k1V"/>
+                            <constraint firstItem="lIb-XJ-xi9" firstAttribute="trailing" secondItem="joj-v5-RgD" secondAttribute="trailing" constant="83" id="Igp-hP-a6r"/>
                             <constraint firstItem="idV-ym-klI" firstAttribute="leading" secondItem="lIb-XJ-xi9" secondAttribute="leading" constant="16" id="M90-gZ-LT2"/>
-                            <constraint firstItem="QFx-aw-wHS" firstAttribute="top" secondItem="joj-v5-RgD" secondAttribute="bottom" constant="74" id="O0E-i0-Zl3"/>
                             <constraint firstItem="VaP-7j-IuH" firstAttribute="leading" secondItem="lIb-XJ-xi9" secondAttribute="leading" constant="72" id="WqU-cj-d36"/>
                             <constraint firstItem="VaP-7j-IuH" firstAttribute="top" secondItem="lIb-XJ-xi9" secondAttribute="top" constant="33" id="X82-0I-3Z1"/>
                             <constraint firstItem="lIb-XJ-xi9" firstAttribute="trailing" secondItem="idV-ym-klI" secondAttribute="trailing" constant="16" id="YSz-yE-0Od"/>
+                            <constraint firstItem="lIb-XJ-xi9" firstAttribute="trailing" secondItem="QFx-aw-wHS" secondAttribute="trailing" constant="129" id="Yfn-G2-5gy"/>
+                            <constraint firstItem="QFx-aw-wHS" firstAttribute="leading" secondItem="lIb-XJ-xi9" secondAttribute="leading" constant="130" id="b7B-49-OBL"/>
                             <constraint firstItem="lIb-XJ-xi9" firstAttribute="trailing" secondItem="VaP-7j-IuH" secondAttribute="trailing" constant="72" id="brk-Y7-TAp"/>
-                            <constraint firstItem="lIb-XJ-xi9" firstAttribute="trailing" secondItem="QFx-aw-wHS" secondAttribute="trailing" constant="128" id="h7s-uH-w5S"/>
+                            <constraint firstItem="joj-v5-RgD" firstAttribute="top" secondItem="idV-ym-klI" secondAttribute="bottom" constant="21" id="bsV-Lb-Ttt"/>
+                            <constraint firstItem="QFx-aw-wHS" firstAttribute="top" secondItem="joj-v5-RgD" secondAttribute="bottom" constant="15" id="gag-OG-JOB"/>
                             <constraint firstItem="idV-ym-klI" firstAttribute="top" secondItem="VaP-7j-IuH" secondAttribute="bottom" constant="100" id="jak-tt-TfN"/>
-                            <constraint firstItem="QFx-aw-wHS" firstAttribute="leading" secondItem="lIb-XJ-xi9" secondAttribute="leading" constant="131" id="pPZ-3E-g1A"/>
-                            <constraint firstItem="lIb-XJ-xi9" firstAttribute="trailing" secondItem="joj-v5-RgD" secondAttribute="trailing" constant="83" id="u0D-pX-6l2"/>
+                            <constraint firstItem="joj-v5-RgD" firstAttribute="leading" secondItem="lIb-XJ-xi9" secondAttribute="leading" constant="83" id="mKY-KI-OKV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eGO-IW-Zyh"/>
@@ -126,6 +137,7 @@
                         <outlet property="gameImageView" destination="VaP-7j-IuH" id="qNm-nt-J2U"/>
                         <outlet property="gameTextField" destination="Wcq-p1-Bjy" id="1Dd-pC-9rr"/>
                         <outlet property="headerTextField" destination="3sL-eY-Mgc" id="fC6-Yz-hJb"/>
+                        <outlet property="noteTextField" destination="kWQ-Ud-Cbd" id="9Iu-P6-EZG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gj2-qH-H8Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -18,13 +18,14 @@ final class NoteCoreDataManager {
         
     }
     
-    func saveNote(rating:Double, gameImage:String, gameName:String,header:String) -> Note? {
+    func saveNote(rating:Double, gameImage:String, gameName:String,header:String,noteText:String) -> Note? {
         let entity = NSEntityDescription.entity(forEntityName: "Note", in: managedContext)!
         let note = NSManagedObject(entity: entity, insertInto: managedContext)
         note.setValue(rating, forKey: "rating")
         note.setValue(gameImage, forKey: "gameImage")
         note.setValue(gameName, forKey: "gameName")
         note.setValue(header, forKey: "header")
+        note.setValue(noteText, forKey: "noteText")
         
         do {
            try managedContext.save()
@@ -38,6 +39,7 @@ final class NoteCoreDataManager {
     
     func getNote() -> [Note] {
        let fetch = NSFetchRequest<NSManagedObject>(entityName: "Note")
+        fetch.returnsObjectsAsFaults = false
         do {
             let notes = try managedContext.fetch(fetch)
             return notes as! [Note]

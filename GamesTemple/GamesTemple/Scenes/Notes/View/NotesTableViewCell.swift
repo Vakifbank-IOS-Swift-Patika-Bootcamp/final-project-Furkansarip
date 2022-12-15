@@ -15,13 +15,14 @@ class NotesTableViewCell: UITableViewCell {
     @IBOutlet weak var cosmosView: CosmosView!
     
     
-    func configure(test : String){
-        
+    func configure(noteModel : Note){
+       
         cosmosView.settings.starSize = 15
         cosmosView.settings.starMargin = 3.1
-       
-        gameLabel.text = test
-        nameLabel.text = test
+        cosmosView.settings.fillMode = .precise
+        cosmosView.rating = noteModel.rating
+        gameLabel.text = noteModel.gameName
+        nameLabel.text = noteModel.header
         
     }
 

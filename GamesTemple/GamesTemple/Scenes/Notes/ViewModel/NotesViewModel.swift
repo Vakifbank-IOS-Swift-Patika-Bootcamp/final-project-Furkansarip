@@ -29,7 +29,6 @@ final class NotesViewModel : NotesViewModelProtocol {
             switch result {
             case .success(let noteGames):
                 self.games = noteGames.results
-                print(self.games?[0])
                 self.delegate?.noteLoaded()
             case .failure(let error):
                 self.delegate?.noteFailed(error: error)
