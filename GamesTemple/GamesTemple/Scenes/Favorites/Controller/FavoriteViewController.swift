@@ -13,7 +13,6 @@ class FavoriteViewController: BaseViewController {
     var favoriteId : Int?
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(favoriteGame)
         favoriteListTableView.delegate = self
         favoriteListTableView.dataSource = self
         favoriteListTableView.register(UINib(nibName: "FavoriteTableViewCell", bundle: nil), forCellReuseIdentifier: "FavoriteCell")

@@ -98,8 +98,6 @@ extension GamesListViewController : UITableViewDelegate,UITableViewDataSource {
         { return UITableViewCell() }
         cell.configure(game: model)
                 return cell
-                
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -109,15 +107,15 @@ extension GamesListViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let id = viewModel.getGameId(at: indexPath.row)
         gameID = id
+        gamesTableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "gameDetail", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let detailView = segue.destination as? GameDetailViewController else { return }
-        
         detailView.gameId = gameID
-        
     }
+    
     
 }
 

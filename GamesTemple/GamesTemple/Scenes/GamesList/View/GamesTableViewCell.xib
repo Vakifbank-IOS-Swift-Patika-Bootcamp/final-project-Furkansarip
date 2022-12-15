@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,37 +30,51 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jom-oF-3J5">
-                        <rect key="frame" x="182" y="75.333333333333329" width="41.333333333333343" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" fixedFrame="YES" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fKa-8m-d4P">
-                        <rect key="frame" x="216" y="75.666666666666686" width="55.666666666666657" height="20"/>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GO6-Jg-PxJ" customClass="CosmosView" customModule="Cosmos">
+                        <rect key="frame" x="182" y="72" width="122" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                <color key="value" systemColor="systemPinkColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                <color key="value" systemColor="systemPinkColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="jom-oF-3J5" firstAttribute="leading" secondItem="PqR-nD-cMB" secondAttribute="trailing" constant="16" id="2dd-Id-hBa"/>
                     <constraint firstItem="9cE-YT-Hqi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="XVS-p4-R5I"/>
                     <constraint firstAttribute="trailing" secondItem="9cE-YT-Hqi" secondAttribute="trailing" constant="16" id="mFc-Je-qLn"/>
                     <constraint firstItem="PqR-nD-cMB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oXf-VS-2dp"/>
-                    <constraint firstItem="jom-oF-3J5" firstAttribute="top" secondItem="9cE-YT-Hqi" secondAttribute="bottom" constant="30" id="poc-vI-D9M"/>
                     <constraint firstItem="9cE-YT-Hqi" firstAttribute="leading" secondItem="PqR-nD-cMB" secondAttribute="trailing" constant="16" id="q9f-BI-YSO"/>
                     <constraint firstItem="PqR-nD-cMB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="vh1-db-PyM"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="cosmosView" destination="GO6-Jg-PxJ" id="SSj-s1-0vy"/>
                 <outlet property="gameImage" destination="PqR-nD-cMB" id="VmG-78-06S"/>
                 <outlet property="gameNameLabel" destination="9cE-YT-Hqi" id="hD4-EE-0Z6"/>
-                <outlet property="gameRatingLabel" destination="jom-oF-3J5" id="cwL-tu-TmR"/>
             </connections>
             <point key="canvasLocation" x="21.538461538461537" y="51.18483412322275"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="GO6-Jg-PxJ">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+    </designables>
     <resources>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
