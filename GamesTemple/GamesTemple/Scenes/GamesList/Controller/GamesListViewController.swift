@@ -29,6 +29,7 @@ final class GamesListViewController: BaseViewController {
    
     @IBOutlet weak var filterItemButton: UIBarButtonItem!
     var gameID : Int?
+    var selectedScreenshots = [Screenshots]()
     var viewModel = GameListViewModel()
     var filteredGames : [GamesListModel]?
     //MARK: Lifecycle
@@ -107,12 +108,14 @@ extension GamesListViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let id = viewModel.getGameId(at: indexPath.row)
         gameID = id
+        selectedScreenshots = viewModel.games?[indexPath.row].screenshots ?? []
         gamesTableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "gameDetail", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let detailView = segue.destination as? GameDetailViewController else { return }
+        detailView.screenshots = selectedScreenshots
         detailView.gameId = gameID
     }
     

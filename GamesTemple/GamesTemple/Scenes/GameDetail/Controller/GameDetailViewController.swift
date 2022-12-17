@@ -8,8 +8,10 @@
 import UIKit
 
 final class GameDetailViewController: BaseViewController {
-
-    @IBOutlet weak var gameImage: UIImageView!
+    
+    
+    @IBOutlet weak var imagesCollectionView: UICollectionView!
+    @IBOutlet weak var pageView: UIPageControl!
     //MARK: Detail StackView
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var suggestionCountLabel: UILabel!
@@ -26,11 +28,15 @@ final class GameDetailViewController: BaseViewController {
     //MARK: Description
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
+    // MARK: Models - Images - Texts & ID
     var isFavorite: Bool = false
     private var logosImage = [UIImageView]()
     var gameId : Int?
     private var viewModel = GameDetailViewModel()
+    var screenshots = [Screenshots]()
     private var genreText = ""
+    var timer : Timer?
+    var currentImageIndex = 0
     var genreList : [Genre]? {
         didSet {
             for genre in genreList ?? [] {
@@ -62,12 +68,32 @@ final class GameDetailViewController: BaseViewController {
         }
         descriptionLabel.adjustsFontSizeToFitWidth = true
         descriptionLabel.minimumScaleFactor = 0.6
-        
+        imagesCollectionView.delegate = self
+        imagesCollectionView.dataSource = self
         guard let id = gameId else { return }
         viewModel.delegate = self
         viewModel.fetchGame(id: id)
-      
+        pageView.numberOfPages = screenshots.count
+        startTimer()
         
+        
+    }
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(nextSlide), userInfo: nil, repeats: true)
+        print(currentImageIndex)
+    }
+    
+    @objc func nextSlide(){
+        
+        if currentImageIndex < screenshots.count - 1 {
+            currentImageIndex += 1
+        } else {
+            currentImageIndex = 0
+        }
+        
+        imagesCollectionView.scrollToItem(at: IndexPath(item: currentImageIndex, section: 0), at: .centeredHorizontally, animated: true)
+        pageView.currentPage = currentImageIndex
     }
     
     @IBAction func favoriteAction(_ sender: Any) {
@@ -100,10 +126,8 @@ extension GameDetailViewController : GameDetailViewModelDelegate {
             self.descriptionLabel.text = self.viewModel.gameDetail?.description
             self.genreList? = self.viewModel.gameDetail?.genres ?? []
             self.platformList = self.viewModel.gameDetail?.parentPlatforms
-        
+            
         }
-        
-       
     }
     
     func gameDetailFail(error: ErrorModel) {
@@ -111,5 +135,28 @@ extension GameDetailViewController : GameDetailViewModelDelegate {
             self.showErrorAlert(message: error.rawValue)
         }
     }
+    
+}
+
+extension GameDetailViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return screenshots.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = imagesCollectionView.dequeueReusableCell(withReuseIdentifier: "SlideCell", for: indexPath) as? SlideCollectionViewCell,let imageURL = URL(string: screenshots[indexPath.item].image) else { return UICollectionViewCell() }
+        cell.configure(screenshot: imageURL)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+       return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+   
     
 }

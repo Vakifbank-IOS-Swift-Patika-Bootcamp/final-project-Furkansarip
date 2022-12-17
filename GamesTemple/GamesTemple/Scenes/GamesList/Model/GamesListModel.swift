@@ -17,10 +17,13 @@ struct GamesListModel: Codable {
     let platforms: [Platforms]?
     let ratings: [Ratings]?
     let description: String?
+    let screenshots: [Screenshots]
     
     enum CodingKeys: String, CodingKey {
         case id, name, released, rating, genres, platforms, ratings, description
         case image = "background_image"
+        case screenshots = "short_screenshots"
+        
     }
 }
 
@@ -47,4 +50,8 @@ struct DetailPlatform: Codable {
 struct Ratings: Codable {
     let title: String
     let percent: Float
+}
+
+struct Screenshots : Codable {
+    let image : String
 }

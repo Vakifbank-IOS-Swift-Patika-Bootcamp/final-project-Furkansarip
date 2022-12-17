@@ -43,6 +43,7 @@
 		745B988F2947B8AA0033819E /* FavoriteCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B988E2947B8AA0033819E /* FavoriteCoreDataManager.swift */; };
 		74B3EA4E294A6016004619FC /* NoteCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3EA4D294A6016004619FC /* NoteCoreDataManager.swift */; };
 		74C84E87294DC778001EA185 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84E86294DC778001EA185 /* Constants.swift */; };
+		74C84E89294DD83D001EA185 /* SlideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84E88294DD83D001EA185 /* SlideCollectionViewCell.swift */; };
 		74CB509E294A6B3200647128 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB509D294A6B3200647128 /* AddNoteViewController.swift */; };
 		74F8BC7B293FAF840059B988 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7A293FAF840059B988 /* AppDelegate.swift */; };
 		74F8BC7D293FAF840059B988 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7C293FAF840059B988 /* SceneDelegate.swift */; };
@@ -117,6 +118,7 @@
 		745B988E2947B8AA0033819E /* FavoriteCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoreDataManager.swift; sourceTree = "<group>"; };
 		74B3EA4D294A6016004619FC /* NoteCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCoreDataManager.swift; sourceTree = "<group>"; };
 		74C84E86294DC778001EA185 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		74C84E88294DD83D001EA185 /* SlideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCollectionViewCell.swift; sourceTree = "<group>"; };
 		74CB509D294A6B3200647128 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		74F8BC77293FAF840059B988 /* GamesTemple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamesTemple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F8BC7A293FAF840059B988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 		745B987B2945F6420033819E /* GameDetail */ = {
 			isa = PBXGroup;
 			children = (
+				74C84E8A294DD8B6001EA185 /* View */,
 				745B987D2945F65B0033819E /* Model */,
 				745B987C2945F6500033819E /* Controller */,
 				745B987E2945F6610033819E /* ViewModel */,
@@ -308,6 +311,14 @@
 				745B988B2947B0B00033819E /* FavoriteViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		74C84E8A294DD8B6001EA185 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74C84E88294DD83D001EA185 /* SlideCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		74F8BC6E293FAF830059B988 = {
@@ -616,6 +627,7 @@
 				74169696294A432A00F0D162 /* NotesTableViewCell.swift in Sources */,
 				7416968E294A3D5000F0D162 /* NotesModel.swift in Sources */,
 				74F8BCBF293FBED60059B988 /* GameTableViewCell.swift in Sources */,
+				74C84E89294DD83D001EA185 /* SlideCollectionViewCell.swift in Sources */,
 				741696B5294A505D00F0D162 /* CosmosSettings.swift in Sources */,
 				741696B3294A505D00F0D162 /* CosmosDefaultSettings.swift in Sources */,
 				74C84E87294DC778001EA185 /* Constants.swift in Sources */,
