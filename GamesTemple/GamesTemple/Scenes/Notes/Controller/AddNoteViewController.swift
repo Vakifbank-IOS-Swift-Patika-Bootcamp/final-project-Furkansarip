@@ -80,7 +80,7 @@ class AddNoteViewController: BaseViewController {
         dismiss(animated: true)
         
     }
-    
+    //MARK: Add or Uptade Button functionality
     @IBAction func addNoteButton(_ sender: UIButton) {
         let buttonTitle = NoteOperations(rawValue: sender.titleLabel?.text ?? "")
         switch buttonTitle {
@@ -115,7 +115,7 @@ class AddNoteViewController: BaseViewController {
     }
 }
 
-//MARK: Extensions
+//MARK: UIPickerView Extensions
 extension AddNoteViewController : UIPickerViewDelegate,UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -138,7 +138,7 @@ extension AddNoteViewController : UIPickerViewDelegate,UIPickerViewDataSource {
         gameImageView.af.setImage(withURL: imageURL)
     }
 }
-
+//MARK: NotesViewDelegate
 extension AddNoteViewController : NotesViewDelegate {
     func noteLoaded() {
         DispatchQueue.main.async {

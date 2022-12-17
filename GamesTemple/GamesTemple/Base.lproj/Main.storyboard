@@ -101,7 +101,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFx-aw-wHS">
-                                <rect key="frame" x="130" y="657" width="131" height="34.333333333333371"/>
+                                <rect key="frame" x="130" y="667" width="131" height="34.333333333333371"/>
                                 <color key="tintColor" systemColor="systemIndigoColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Add Note" imagePadding="8">
@@ -142,7 +142,7 @@
                             <constraint firstItem="lIb-XJ-xi9" firstAttribute="trailing" secondItem="VaP-7j-IuH" secondAttribute="trailing" constant="40" id="brk-Y7-TAp"/>
                             <constraint firstItem="joj-v5-RgD" firstAttribute="top" secondItem="idV-ym-klI" secondAttribute="bottom" constant="21" id="bsV-Lb-Ttt"/>
                             <constraint firstItem="idV-ym-klI" firstAttribute="top" secondItem="VaP-7j-IuH" secondAttribute="bottom" constant="50" id="cqn-YC-IlN"/>
-                            <constraint firstItem="QFx-aw-wHS" firstAttribute="top" secondItem="joj-v5-RgD" secondAttribute="bottom" constant="15" id="gag-OG-JOB"/>
+                            <constraint firstItem="QFx-aw-wHS" firstAttribute="top" secondItem="joj-v5-RgD" secondAttribute="bottom" constant="25" id="gag-OG-JOB"/>
                             <constraint firstItem="joj-v5-RgD" firstAttribute="leading" secondItem="lIb-XJ-xi9" secondAttribute="leading" constant="83" id="mKY-KI-OKV"/>
                         </constraints>
                     </view>

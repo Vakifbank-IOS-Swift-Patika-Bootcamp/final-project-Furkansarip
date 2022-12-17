@@ -7,12 +7,13 @@
 
 import UIKit
 
-class FavoriteViewController: BaseViewController {
+final class FavoriteViewController: BaseViewController {
     @IBOutlet var favoriteListTableView : UITableView!
     var favoriteGame = [FavoriteGame]()
     var favoriteId : Int?
     var screenshots = [Screenshots]()
     var viewModel = FavoriteViewModel()
+    //MARK: LifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
         favoriteListTableView.delegate = self
@@ -31,7 +32,7 @@ class FavoriteViewController: BaseViewController {
     
 }
 
-
+//MARK: FavoriteTableView
 extension FavoriteViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favoriteGame.count
@@ -51,7 +52,6 @@ extension FavoriteViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let favoriteGameId = favoriteGame[indexPath.row].gamesId else { return }
         favoriteId = Int(favoriteGameId)
-        print(favoriteId)
         viewModel.getImages(gameID: favoriteId ?? 0)
        
     }
@@ -82,19 +82,16 @@ extension FavoriteViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
 }
-
+//MARK: FavoriteViewDelegate
 extension FavoriteViewController : FavoriteViewDelegate {
     func favoriteImagesLoaded() {
         DispatchQueue.main.async {
             self.screenshots = self.viewModel.images
             self.performSegue(withIdentifier: "favoriteDetail", sender: nil)
         }
-        
     }
     
     func favoriteImagesFailed(error: ErrorModel) {
         showErrorAlert(message: "Screenshots request Failed")
     }
-    
-    
 }

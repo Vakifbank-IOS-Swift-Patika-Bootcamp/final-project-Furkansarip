@@ -37,6 +37,8 @@ final class GameDetailViewController: BaseViewController {
     private var genreText = ""
     var timer : Timer?
     var currentImageIndex = 0
+    
+    //MARK: Genres
     var genreList : [Genre]? {
         didSet {
             for genre in genreList ?? [] {
@@ -45,6 +47,7 @@ final class GameDetailViewController: BaseViewController {
             
         }
     }
+    //MARK: Platforms
     var platformList : [ParentPlatform]? {
         didSet {
             for parent in platformList ?? [] {
@@ -82,7 +85,7 @@ final class GameDetailViewController: BaseViewController {
         startTimer()
         
     }
-    
+    //MARK: Slide Actions
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(nextSlide), userInfo: nil, repeats: true)
     }
@@ -98,7 +101,7 @@ final class GameDetailViewController: BaseViewController {
         imagesCollectionView.scrollToItem(at: IndexPath(item: currentImageIndex, section: 0), at: .centeredHorizontally, animated: true)
         pageView.currentPage = currentImageIndex
     }
-    
+    //MARK: Favorite Actions
     @IBAction func favoriteAction(_ sender: Any) {
         isFavorite = !isFavorite
         if (isFavorite) {
@@ -115,13 +118,11 @@ final class GameDetailViewController: BaseViewController {
     
 }
 
-
+//MARK: GameDetailViewModelDelegate
 extension GameDetailViewController : GameDetailViewModelDelegate {
     func gameDetailLoaded() {
         genreList = viewModel.gameDetail?.genres
-        print(genreText.removeLast())
         DispatchQueue.main.async {
-            
             self.nameLabel.text = "Name: \(self.viewModel.gameDetail?.name ?? "")"
             self.suggestionCountLabel.text = "Suggestion Count : \(self.viewModel.gameDetail?.suggestionsCount ?? 0)"
             self.ratingLabel.text = "Rating : \(self.viewModel.gameDetail?.rating ?? 0.0)"
@@ -131,7 +132,6 @@ extension GameDetailViewController : GameDetailViewModelDelegate {
             self.descriptionLabel.text = self.viewModel.gameDetail?.description
             self.genreList? = self.viewModel.gameDetail?.genres ?? []
             self.platformList = self.viewModel.gameDetail?.parentPlatforms
-            
         }
     }
     
@@ -143,6 +143,7 @@ extension GameDetailViewController : GameDetailViewModelDelegate {
     
 }
 
+//MARK: CollectionView
 extension GameDetailViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return screenshots.count
@@ -161,7 +162,4 @@ extension GameDetailViewController : UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    
-   
-    
 }

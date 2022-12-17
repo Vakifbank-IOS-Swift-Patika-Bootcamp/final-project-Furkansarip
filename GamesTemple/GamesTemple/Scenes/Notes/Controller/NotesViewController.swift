@@ -15,9 +15,9 @@ final class NotesViewController: BaseViewController {
             notesTableView.dataSource = self
         }
     }
-    
     var games = [Note]()
     var selectedGame : Note?
+    //MARK: LifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
         notesTableView.register(UINib(nibName: "NotesTableViewCell", bundle: nil), forCellReuseIdentifier: "NoteCell")
@@ -28,17 +28,16 @@ final class NotesViewController: BaseViewController {
         super.viewWillAppear(animated)
         games = NoteCoreDataManager().getNote()
         notesTableView.reloadData()
-        print("test")
     }
     
     
     @IBAction func addNotesButton(_ sender: Any) {
-       performSegue(withIdentifier: "addNoteView", sender: nil)
+        performSegue(withIdentifier: "addNoteView", sender: nil)
     }
     
     
 }
-
+//MARK: NotesTableView
 extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return games.count
@@ -52,7 +51,6 @@ extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedGame = games[indexPath.row]
-        print(selectedGame)
         performSegue(withIdentifier: "updateNoteView", sender: nil)
     }
     
@@ -95,7 +93,7 @@ extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
 }
-
+//MARK: NoteDelegate
 extension NotesViewController : NoteDelegate {
     func noteOperations() {
         games = NoteCoreDataManager().getNote()

@@ -15,7 +15,6 @@ struct NetworkManager {
     
     func getAllGames(page:Int,completion:@escaping(_ result:Result<GameResponse,ErrorModel>)->Void){
         let endpoint = "\(baseURL)?key=\(API_KEY)&page=\(page)"
-        print(endpoint)
         guard let url = URL(string: endpoint) else {
             completion(.failure(.invalidURL))
             return
@@ -48,7 +47,6 @@ struct NetworkManager {
     
     func highestRating(page:Int,completion:@escaping(_ result:Result<GameResponse,ErrorModel>)->Void){
         let endpoint = "\(baseURL)?key=\(API_KEY)&dates=2001-01-01,2022-12-31&ordering=-rating&page=\(page)"
-        print(endpoint)
         guard let url = URL(string: endpoint) else {
             completion(.failure(.invalidURL))
             return
@@ -78,9 +76,8 @@ struct NetworkManager {
         task.resume()
     }
     
-    func upcomingGames(page:Int,completion:@escaping(_ result:Result<GameResponse,ErrorModel>)->Void){
+    func thisYearGames(page:Int,completion:@escaping(_ result:Result<GameResponse,ErrorModel>)->Void){
         let endpoint = "\(baseURL)?key=\(API_KEY)&dates=2021-12-31,2022-12-31&ordering=-added&page=\(page)"
-        print(endpoint)
         guard let url = URL(string: endpoint) else {
             completion(.failure(.invalidURL))
             return
@@ -113,7 +110,6 @@ struct NetworkManager {
     
     func getDetail(gameID:Int,completion:@escaping(_ result:Result<GameDetail,ErrorModel>)->Void){
         let endpoint = "\(baseURL)/\(gameID)?key=\(API_KEY)"
-        print(endpoint)
         guard let url = URL(string: endpoint) else {
             completion(.failure(.invalidURL))
             return
@@ -145,7 +141,6 @@ struct NetworkManager {
     
     func getNoteGames(completion:@escaping(_ result:Result<NotesModel,ErrorModel>)->Void){
         let endpoint = "\(baseURL)?key=\(API_KEY)"
-        print(endpoint)
         guard let url = URL(string: endpoint) else {
             completion(.failure(.invalidURL))
             return
@@ -177,7 +172,6 @@ struct NetworkManager {
     
     func getScreenshots(id: Int, completion:@escaping(_ result:Result<FavoriteModel,ErrorModel>)->Void){
         let endpoint = "\(baseURL)/\(id)/screenshots?key=\(API_KEY)"
-        print(endpoint)
         guard let url = URL(string: endpoint) else {
             completion(.failure(.invalidURL))
             return

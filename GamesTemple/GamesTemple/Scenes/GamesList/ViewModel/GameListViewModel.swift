@@ -66,7 +66,7 @@ class GameListViewModel : GameListViewModelProtocol {
     }
     
     func upcomingGames() {
-        NetworkManager.shared.upcomingGames(page:1) {[weak self] result in
+        NetworkManager.shared.thisYearGames(page:1) {[weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let upcoming):
