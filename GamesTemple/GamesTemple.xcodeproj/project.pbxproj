@@ -192,11 +192,11 @@
 		74169689294A3B3C00F0D162 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
-				7416969B294A501500F0D162 /* Cosmos */,
 				74169693294A431000F0D162 /* View */,
 				7416968C294A3D4200F0D162 /* Model */,
-				7416968B294A3B5B00F0D162 /* Controller */,
 				7416968A294A3B4900F0D162 /* ViewModel */,
+				7416968B294A3B5B00F0D162 /* Controller */,
+				7416969B294A501500F0D162 /* Cosmos */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -271,8 +271,8 @@
 			children = (
 				74C84E8A294DD8B6001EA185 /* View */,
 				745B987D2945F65B0033819E /* Model */,
-				745B987C2945F6500033819E /* Controller */,
 				745B987E2945F6610033819E /* ViewModel */,
+				745B987C2945F6500033819E /* Controller */,
 			);
 			path = GameDetail;
 			sourceTree = "<group>";
@@ -304,10 +304,10 @@
 		745B98852947AEC50033819E /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				745B98862947AED40033819E /* View */,
 				74C84EA8294E719F001EA185 /* Model */,
 				74C84EA3294E6ED8001EA185 /* ViewModel */,
 				745B988D2947B0B80033819E /* Controller */,
-				745B98862947AED40033819E /* View */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -460,10 +460,10 @@
 		74F8BCB7293FB6770059B988 /* GamesList */ = {
 			isa = PBXGroup;
 			children = (
-				74F8BCBB293FB6B60059B988 /* Controller */,
+				74F8BCB8293FB6930059B988 /* View */,
 				74F8BCBA293FB6B10059B988 /* Model */,
 				74F8BCB9293FB6970059B988 /* ViewModel */,
-				74F8BCB8293FB6930059B988 /* View */,
+				74F8BCBB293FB6B60059B988 /* Controller */,
 			);
 			path = GamesList;
 			sourceTree = "<group>";

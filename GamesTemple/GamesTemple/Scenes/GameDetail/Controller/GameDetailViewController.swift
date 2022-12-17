@@ -40,8 +40,9 @@ final class GameDetailViewController: BaseViewController {
     var genreList : [Genre]? {
         didSet {
             for genre in genreList ?? [] {
-                genreText += "\(genre.name) - "
+                genreText += "\(genre.name)-"
             }
+            
         }
     }
     var platformList : [ParentPlatform]? {
@@ -79,7 +80,6 @@ final class GameDetailViewController: BaseViewController {
         viewModel.fetchGame(id: id)
         pageView.numberOfPages = screenshots.count
         startTimer()
-        
         
     }
     
@@ -119,7 +119,9 @@ final class GameDetailViewController: BaseViewController {
 extension GameDetailViewController : GameDetailViewModelDelegate {
     func gameDetailLoaded() {
         genreList = viewModel.gameDetail?.genres
+        print(genreText.removeLast())
         DispatchQueue.main.async {
+            
             self.nameLabel.text = "Name: \(self.viewModel.gameDetail?.name ?? "")"
             self.suggestionCountLabel.text = "Suggestion Count : \(self.viewModel.gameDetail?.suggestionsCount ?? 0)"
             self.ratingLabel.text = "Rating : \(self.viewModel.gameDetail?.rating ?? 0.0)"
