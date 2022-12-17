@@ -47,6 +47,9 @@
 		74C84E8C294E0B2C001EA185 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84E8B294E0B2C001EA185 /* NotificationManager.swift */; };
 		74C84E98294E5E32001EA185 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84E97294E5E32001EA185 /* OnboardViewController.swift */; };
 		74C84E9A294E5F6D001EA185 /* OnboardTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84E99294E5F6D001EA185 /* OnboardTwoViewController.swift */; };
+		74C84E9E294E6C1B001EA185 /* Localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74C84EA0294E6C1B001EA185 /* Localize.strings */; };
+		74C84EA5294E6EE7001EA185 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84EA4294E6EE7001EA185 /* FavoriteViewModel.swift */; };
+		74C84EA7294E7155001EA185 /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84EA6294E7155001EA185 /* FavoriteModel.swift */; };
 		74CB509E294A6B3200647128 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB509D294A6B3200647128 /* AddNoteViewController.swift */; };
 		74F8BC7B293FAF840059B988 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7A293FAF840059B988 /* AppDelegate.swift */; };
 		74F8BC7D293FAF840059B988 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7C293FAF840059B988 /* SceneDelegate.swift */; };
@@ -125,6 +128,11 @@
 		74C84E8B294E0B2C001EA185 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		74C84E97294E5E32001EA185 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		74C84E99294E5F6D001EA185 /* OnboardTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardTwoViewController.swift; sourceTree = "<group>"; };
+		74C84E9F294E6C1B001EA185 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localize.strings; sourceTree = "<group>"; };
+		74C84EA1294E6C2B001EA185 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
+		74C84EA2294E6C2B001EA185 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localize.strings; sourceTree = "<group>"; };
+		74C84EA4294E6EE7001EA185 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		74C84EA6294E7155001EA185 /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
 		74CB509D294A6B3200647128 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		74F8BC77293FAF840059B988 /* GamesTemple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamesTemple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F8BC7A293FAF840059B988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -296,6 +304,8 @@
 		745B98852947AEC50033819E /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				74C84EA8294E719F001EA185 /* Model */,
+				74C84EA3294E6ED8001EA185 /* ViewModel */,
 				745B988D2947B0B80033819E /* Controller */,
 				745B98862947AED40033819E /* View */,
 			);
@@ -336,6 +346,30 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		74C84E9B294E6BF5001EA185 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				74C84EA0294E6C1B001EA185 /* Localize.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		74C84EA3294E6ED8001EA185 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				74C84EA4294E6EE7001EA185 /* FavoriteViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		74C84EA8294E719F001EA185 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				74C84EA6294E7155001EA185 /* FavoriteModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		74F8BC6E293FAF830059B988 = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +393,7 @@
 		74F8BC79293FAF840059B988 /* GamesTemple */ = {
 			isa = PBXGroup;
 			children = (
+				74C84E9B294E6BF5001EA185 /* Localization */,
 				74F8BCB6293FB6380059B988 /* App */,
 				74F8BCB5293FB6310059B988 /* Scenes */,
 				74F8BCAD293FAFFA0059B988 /* Core */,
@@ -565,6 +600,7 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = 74F8BC6E293FAF830059B988;
 			packageReferences = (
@@ -594,6 +630,7 @@
 				74F8BC8A293FAF840059B988 /* LaunchScreen.storyboard in Resources */,
 				74F8BC87293FAF840059B988 /* Assets.xcassets in Resources */,
 				74169697294A432A00F0D162 /* NotesTableViewCell.xib in Resources */,
+				74C84E9E294E6C1B001EA185 /* Localize.strings in Resources */,
 				745B98722944D3130033819E /* DropDownCell.xib in Resources */,
 				74F8BC82293FAF840059B988 /* Main.storyboard in Resources */,
 				74F8BCCB293FD9250059B988 /* GamesTableViewCell.xib in Resources */,
@@ -630,6 +667,7 @@
 				74F8BCC1293FBFAE0059B988 /* GameListViewModel.swift in Sources */,
 				741696B2294A505D00F0D162 /* CosmosLocalizedRating.swift in Sources */,
 				741696B1294A505D00F0D162 /* RightToLeft.swift in Sources */,
+				74C84EA5294E6EE7001EA185 /* FavoriteViewModel.swift in Sources */,
 				741696AE294A505D00F0D162 /* StarLayer.swift in Sources */,
 				745B988F2947B8AA0033819E /* FavoriteCoreDataManager.swift in Sources */,
 				74F8BCB2293FB14D0059B988 /* ErrorModel.swift in Sources */,
@@ -658,6 +696,7 @@
 				74CB509E294A6B3200647128 /* AddNoteViewController.swift in Sources */,
 				74F8BCBD293FB87A0059B988 /* GamesListModel.swift in Sources */,
 				74F8BCAF293FB10F0059B988 /* NetworkManager.swift in Sources */,
+				74C84EA7294E7155001EA185 /* FavoriteModel.swift in Sources */,
 				741696B7294A505D00F0D162 /* CosmosRating.swift in Sources */,
 				745B98712944D3130033819E /* DropDownCell.swift in Sources */,
 				74F8BC7B293FAF840059B988 /* AppDelegate.swift in Sources */,
@@ -703,10 +742,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		74C84EA0294E6C1B001EA185 /* Localize.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74C84E9F294E6C1B001EA185 /* en */,
+				74C84EA2294E6C2B001EA185 /* tr */,
+			);
+			name = Localize.strings;
+			sourceTree = "<group>";
+		};
 		74F8BC80293FAF840059B988 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				74F8BC81293FAF840059B988 /* Base */,
+				74C84EA1294E6C2B001EA185 /* tr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

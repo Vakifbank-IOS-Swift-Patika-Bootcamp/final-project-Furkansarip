@@ -11,11 +11,14 @@ class FavoriteViewController: BaseViewController {
     @IBOutlet var favoriteListTableView : UITableView!
     var favoriteGame = [FavoriteGame]()
     var favoriteId : Int?
+    var screenshots = [Screenshots]()
+    var viewModel = FavoriteViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         favoriteListTableView.delegate = self
         favoriteListTableView.dataSource = self
         favoriteListTableView.register(UINib(nibName: "FavoriteTableViewCell", bundle: nil), forCellReuseIdentifier: "FavoriteCell")
+        viewModel.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,12 +51,15 @@ extension FavoriteViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let favoriteGameId = favoriteGame[indexPath.row].gamesId else { return }
         favoriteId = Int(favoriteGameId)
-        performSegue(withIdentifier: "favoriteDetail", sender: nil)
+        print(favoriteId)
+        viewModel.getImages(gameID: favoriteId ?? 0)
+       
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as? GameDetailViewController
-        destination?.isFavorite = true
-        destination?.gameId = favoriteId
+        guard let gameDetail = segue.destination as? GameDetailViewController else { return }
+        gameDetail.isFavorite = true
+        gameDetail.gameId = favoriteId
+        gameDetail.screenshots = screenshots
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
@@ -74,5 +80,21 @@ extension FavoriteViewController : UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
+    
+}
+
+extension FavoriteViewController : FavoriteViewDelegate {
+    func favoriteImagesLoaded() {
+        DispatchQueue.main.async {
+            self.screenshots = self.viewModel.images
+            self.performSegue(withIdentifier: "favoriteDetail", sender: nil)
+        }
+        
+    }
+    
+    func favoriteImagesFailed(error: ErrorModel) {
+        showErrorAlert(message: "Screenshots request Failed")
+    }
+    
     
 }
