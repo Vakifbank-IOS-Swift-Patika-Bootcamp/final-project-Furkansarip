@@ -43,6 +43,8 @@ final class GamesListViewController: BaseViewController {
         dropDownMenu.anchorView = filterItemButton
         filteredGames = viewModel.games
         
+        NotificationManager().localNotify(title: "Welcome", body: "Stranger", time: 5)
+        
     }
     
     

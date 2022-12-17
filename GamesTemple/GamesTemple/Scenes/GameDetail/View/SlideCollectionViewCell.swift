@@ -15,4 +15,8 @@ class SlideCollectionViewCell: UICollectionViewCell {
     func configure(screenshot: URL){
         gameImage.af.setImage(withURL: screenshot)
     }
+    
+    override func prepareForReuse() {
+        gameImage.image = nil
+    }
 }

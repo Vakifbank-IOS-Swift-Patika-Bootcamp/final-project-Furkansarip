@@ -44,6 +44,7 @@
 		74B3EA4E294A6016004619FC /* NoteCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3EA4D294A6016004619FC /* NoteCoreDataManager.swift */; };
 		74C84E87294DC778001EA185 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84E86294DC778001EA185 /* Constants.swift */; };
 		74C84E89294DD83D001EA185 /* SlideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84E88294DD83D001EA185 /* SlideCollectionViewCell.swift */; };
+		74C84E8C294E0B2C001EA185 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84E8B294E0B2C001EA185 /* NotificationManager.swift */; };
 		74CB509E294A6B3200647128 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB509D294A6B3200647128 /* AddNoteViewController.swift */; };
 		74F8BC7B293FAF840059B988 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7A293FAF840059B988 /* AppDelegate.swift */; };
 		74F8BC7D293FAF840059B988 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7C293FAF840059B988 /* SceneDelegate.swift */; };
@@ -119,6 +120,7 @@
 		74B3EA4D294A6016004619FC /* NoteCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCoreDataManager.swift; sourceTree = "<group>"; };
 		74C84E86294DC778001EA185 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		74C84E88294DD83D001EA185 /* SlideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCollectionViewCell.swift; sourceTree = "<group>"; };
+		74C84E8B294E0B2C001EA185 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		74CB509D294A6B3200647128 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		74F8BC77293FAF840059B988 /* GamesTemple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamesTemple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F8BC7A293FAF840059B988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				745B988E2947B8AA0033819E /* FavoriteCoreDataManager.swift */,
 				74B3EA4D294A6016004619FC /* NoteCoreDataManager.swift */,
 				74C84E86294DC778001EA185 /* Constants.swift */,
+				74C84E8B294E0B2C001EA185 /* NotificationManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				745B98742945B3510033819E /* BaseViewController.swift in Sources */,
+				74C84E8C294E0B2C001EA185 /* NotificationManager.swift in Sources */,
 				745B98822946224F0033819E /* GameDetailViewController.swift in Sources */,
 				74169692294A420C00F0D162 /* NotesViewController.swift in Sources */,
 				741696BB294A505D00F0D162 /* StarFillMode.swift in Sources */,
