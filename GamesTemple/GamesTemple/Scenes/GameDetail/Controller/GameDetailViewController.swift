@@ -108,9 +108,7 @@ extension GameDetailViewController : GameDetailViewModelDelegate {
     
     func gameDetailFail(error: ErrorModel) {
         DispatchQueue.main.async {
-            self.showErrorAlert(message: error.rawValue) {
-                print("Error Log")
-            }
+            self.showErrorAlert(message: error.rawValue)
         }
     }
     

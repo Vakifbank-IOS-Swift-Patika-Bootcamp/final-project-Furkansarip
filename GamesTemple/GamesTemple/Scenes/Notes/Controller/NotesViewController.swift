@@ -17,6 +17,7 @@ final class NotesViewController: BaseViewController {
     }
     
     var games = [Note]()
+    var selectedGame : Note?
     override func viewDidLoad() {
         super.viewDidLoad()
         notesTableView.register(UINib(nibName: "NotesTableViewCell", bundle: nil), forCellReuseIdentifier: "NoteCell")
@@ -27,17 +28,12 @@ final class NotesViewController: BaseViewController {
         super.viewWillAppear(animated)
         games = NoteCoreDataManager().getNote()
         notesTableView.reloadData()
+        print("test")
     }
     
     
     @IBAction func addNotesButton(_ sender: Any) {
-       /* let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let secondVC = storyboard.instantiateViewController(identifier: "AddNoteViewController")
-        secondVC.modalPresentationStyle = .fullScreen
-        secondVC.modalTransitionStyle = .partialCurl
-        self.present(secondVC, animated: true)
-        self.navigationController?.pushViewController(secondVC, animated: true) */
-        performSegue(withIdentifier: "addNoteView", sender: nil)
+       performSegue(withIdentifier: "addNoteView", sender: nil)
     }
     
     
@@ -55,7 +51,9 @@ extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "addNoteView", sender: nil)
+        selectedGame = games[indexPath.row]
+        print(selectedGame)
+        performSegue(withIdentifier: "updateNoteView", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -76,14 +74,33 @@ extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
             do {
                 try  NoteCoreDataManager().managedContext.save()
             } catch {
-                showErrorAlert(message: "Favorite Game is not deleted!") {
-                    print("Error Log : CoreData Delete Failed")
-                }
+                showErrorAlert(message: "Favorite Game is not deleted!")
             }
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addNoteView" {
+            let addNoteView = segue.destination as? AddNoteViewController
+            addNoteView?.noteDelegate = self
+            addNoteView?.buttonTitle = "Add Note"
+        } else {
+            let updateNoteView = segue.destination as? AddNoteViewController
+            updateNoteView?.updateStatus = true
+            updateNoteView?.updateNoteModel = selectedGame
+            updateNoteView?.noteDelegate = self
+            updateNoteView?.buttonTitle = "Update Note"
+        }
+        
+    }
     
 }
 
-
+extension NotesViewController : NoteDelegate {
+    func noteOperations() {
+        games = NoteCoreDataManager().getNote()
+        notesTableView.reloadData()
+    }
+    
+    
+}

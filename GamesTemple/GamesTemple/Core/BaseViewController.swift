@@ -29,12 +29,8 @@ class BaseViewController: UIViewController {
             indicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         }
     
-    func showErrorAlert(message: String, completion: @escaping () -> Void) {
-            SwiftAlertView.show(title: "Error",
-                                message: message,
-                                buttonTitles: ["OK"]).onButtonClicked { _, _ in
-                completion()
-            }
+    func showErrorAlert(message: String) {
+            SwiftAlertView.show(title: "Error",message: message,buttonTitles: ["OK"])
         }
 
 }

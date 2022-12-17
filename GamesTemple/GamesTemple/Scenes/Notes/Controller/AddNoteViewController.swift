@@ -8,14 +8,20 @@
 import UIKit
 import AlamofireImage
 
+protocol NoteDelegate {
+    func noteOperations()
+}
+
 class AddNoteViewController: BaseViewController {
     
+    var noteDelegate : NoteDelegate?
     //MARK: IBOutlets
     @IBOutlet weak var cosmosView: CosmosView!
     @IBOutlet weak var gameTextField: UITextField!
     @IBOutlet weak var gameImageView: UIImageView!
     @IBOutlet weak var headerTextField: UITextField!
     @IBOutlet weak var noteTextField: UITextField!
+    @IBOutlet weak var noteViewButton: UIButton!
     //MARK: Variables
     var games : [NoteGamesModel]?
     var viewModel = NotesViewModel()
@@ -24,9 +30,22 @@ class AddNoteViewController: BaseViewController {
     var gameName : String?
     var starRating = 3.0
     var gameImage : String?
+    var buttonTitle = "Add Note"
+    var updateStatus = false
+    var updateNoteModel : Note?
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        noteViewButton.setTitle(buttonTitle, for: .normal)
+        if updateStatus {
+            headerTextField.text = updateNoteModel?.header
+            noteTextField.text = updateNoteModel?.noteText
+            gameTextField.text = updateNoteModel?.gameName
+            cosmosView.rating = updateNoteModel?.rating ?? 0.0
+            gameTextField.isEnabled = false
+            guard let imageURL = URL(string: updateNoteModel?.gameImage ?? "") else { return }
+            gameImageView.af.setImage(withURL: imageURL)
+        }
         cosmosView.settings.fillMode = .precise
         gameTextField.inputView = gamePicker
         gamePicker.delegate = self
@@ -34,7 +53,7 @@ class AddNoteViewController: BaseViewController {
         createToolbar()
         viewModel.delegate = self
         viewModel.fecthGames()
-       
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneButton))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,17 +75,43 @@ class AddNoteViewController: BaseViewController {
         view.endEditing(true)
     }
     
-    @IBAction func addNoteButton(_ sender: Any) {
-        if headerTextField.text != "" && gameTextField.text != "" {
-            NoteCoreDataManager().saveNote(rating:starRating , gameImage: gameImageValue ?? "", gameName: gameName ?? "", header: headerTextField.text! ,noteText: noteTextField.text!)
-            //self.dismiss(animated: true)
-            self.navigationController?.popViewController(animated: true)
-            
-        } else {
-            showErrorAlert(message: "Empty Value") {
-                print("Error Log : AddNoteViewController -> addNoteButton")
+    @objc func doneButton(){
+        
+        dismiss(animated: true)
+        
+    }
+    
+    @IBAction func addNoteButton(_ sender: UIButton) {
+        let buttonTitle = NoteOperations(rawValue: sender.titleLabel?.text ?? "")
+        switch buttonTitle {
+        case .addNote:
+            if headerTextField.text != "" && gameTextField.text != "" && noteTextField.text != "" {
+                NoteCoreDataManager().saveNote(rating:starRating , gameImage: gameImageValue ?? "", gameName: gameName ?? "", header: headerTextField.text! ,noteText: noteTextField.text!)
+                noteDelegate?.noteOperations()
+                dismiss(animated: true)
+            } else {
+                showErrorAlert(message: "Reason : Empty Value")
             }
+        case .updateNote:
+            if headerTextField.text != "" && gameTextField.text != "" && noteTextField.text != "" {
+                updateNoteModel?.header = headerTextField.text
+                updateNoteModel?.noteText = noteTextField.text
+                updateNoteModel?.rating = starRating
+                do {
+                    try NoteCoreDataManager().managedContext.save()
+                    noteDelegate?.noteOperations()
+                    dismiss(animated: true)
+                } catch {
+                    showErrorAlert(message: "Note Update Failed!")
+                }
+            } else {
+                showErrorAlert(message: "Reason : Empty Value")
+            }
+            
+        case .none:
+            showErrorAlert(message: "Button Title Error")
         }
+        
     }
 }
 
@@ -103,8 +148,6 @@ extension AddNoteViewController : NotesViewDelegate {
     }
     
     func noteFailed(error: ErrorModel) {
-        showErrorAlert(message: error.rawValue) {
-            print("Error Log : NotesViewController")
-        }
+        showErrorAlert(message: error.rawValue)
     }
 }

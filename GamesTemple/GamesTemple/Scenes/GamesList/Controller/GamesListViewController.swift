@@ -135,10 +135,7 @@ extension GamesListViewController : GameListViewModelDelegate {
     func gamesFailed(error: ErrorModel) {
         indicator.startAnimating()
         DispatchQueue.main.async {
-            self.showErrorAlert(message: error.rawValue) {
-                print("Error Log")
-                
-            }
+            self.showErrorAlert(message: error.rawValue) 
         }
         
     }

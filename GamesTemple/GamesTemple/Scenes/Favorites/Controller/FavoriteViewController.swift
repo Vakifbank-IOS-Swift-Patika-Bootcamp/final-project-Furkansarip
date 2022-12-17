@@ -70,9 +70,7 @@ extension FavoriteViewController : UITableViewDelegate, UITableViewDataSource {
             do {
                 try  FavoriteCoreDataManager().managedContext.save()
             } catch {
-                showErrorAlert(message: "Favorite Game is not deleted!") {
-                    print("Error Log : CoreData Delete")
-                }
+                showErrorAlert(message: "Favorite Game is not deleted!")
             }
         }
     }
