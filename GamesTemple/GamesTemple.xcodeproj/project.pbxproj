@@ -45,6 +45,8 @@
 		74C84E87294DC778001EA185 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84E86294DC778001EA185 /* Constants.swift */; };
 		74C84E89294DD83D001EA185 /* SlideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84E88294DD83D001EA185 /* SlideCollectionViewCell.swift */; };
 		74C84E8C294E0B2C001EA185 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84E8B294E0B2C001EA185 /* NotificationManager.swift */; };
+		74C84E98294E5E32001EA185 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84E97294E5E32001EA185 /* OnboardViewController.swift */; };
+		74C84E9A294E5F6D001EA185 /* OnboardTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84E99294E5F6D001EA185 /* OnboardTwoViewController.swift */; };
 		74CB509E294A6B3200647128 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB509D294A6B3200647128 /* AddNoteViewController.swift */; };
 		74F8BC7B293FAF840059B988 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7A293FAF840059B988 /* AppDelegate.swift */; };
 		74F8BC7D293FAF840059B988 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7C293FAF840059B988 /* SceneDelegate.swift */; };
@@ -121,6 +123,8 @@
 		74C84E86294DC778001EA185 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		74C84E88294DD83D001EA185 /* SlideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCollectionViewCell.swift; sourceTree = "<group>"; };
 		74C84E8B294E0B2C001EA185 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		74C84E97294E5E32001EA185 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
+		74C84E99294E5F6D001EA185 /* OnboardTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardTwoViewController.swift; sourceTree = "<group>"; };
 		74CB509D294A6B3200647128 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		74F8BC77293FAF840059B988 /* GamesTemple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamesTemple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F8BC7A293FAF840059B988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -323,6 +327,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		74C84E96294E5E1C001EA185 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				74C84E97294E5E32001EA185 /* OnboardViewController.swift */,
+				74C84E99294E5F6D001EA185 /* OnboardTwoViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		74F8BC6E293FAF830059B988 = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +402,7 @@
 		74F8BCB5293FB6310059B988 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				74C84E96294E5E1C001EA185 /* Onboarding */,
 				74169689294A3B3C00F0D162 /* Notes */,
 				745B98852947AEC50033819E /* Favorites */,
 				745B987B2945F6420033819E /* GameDetail */,
@@ -630,10 +644,12 @@
 				745B98892947AEFE0033819E /* FavoriteTableViewCell.swift in Sources */,
 				74169696294A432A00F0D162 /* NotesTableViewCell.swift in Sources */,
 				7416968E294A3D5000F0D162 /* NotesModel.swift in Sources */,
+				74C84E9A294E5F6D001EA185 /* OnboardTwoViewController.swift in Sources */,
 				74F8BCBF293FBED60059B988 /* GameTableViewCell.swift in Sources */,
 				74C84E89294DD83D001EA185 /* SlideCollectionViewCell.swift in Sources */,
 				741696B5294A505D00F0D162 /* CosmosSettings.swift in Sources */,
 				741696B3294A505D00F0D162 /* CosmosDefaultSettings.swift in Sources */,
+				74C84E98294E5E32001EA185 /* OnboardViewController.swift in Sources */,
 				74C84E87294DC778001EA185 /* Constants.swift in Sources */,
 				741696B4294A505D00F0D162 /* CosmosLayerHelper.swift in Sources */,
 				74F8BC7F293FAF840059B988 /* GamesListViewController.swift in Sources */,
@@ -710,6 +726,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -770,6 +787,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

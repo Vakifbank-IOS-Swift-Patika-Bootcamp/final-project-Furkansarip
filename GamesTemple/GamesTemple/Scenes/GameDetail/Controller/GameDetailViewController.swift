@@ -51,12 +51,16 @@ final class GameDetailViewController: BaseViewController {
                 switch result {
                 case "PC":
                     pcLogo.image = UIImage(systemName: "laptopcomputer")
+                    pcLogo.tintColor = .systemPink
                 case "PlayStation":
                     playstationLogo.image = UIImage(systemName: "playstation.logo")
+                    playstationLogo.tintColor = .systemPink
                 case "Xbox":
                     xboxLogo.image = UIImage(systemName: "xbox.logo")
+                    xboxLogo.tintColor = .systemPink
                 default:
                     phoneLogo.image = UIImage(systemName: "iphone")
+                    phoneLogo.tintColor = .systemPink
                 }
             }
         }
@@ -81,7 +85,6 @@ final class GameDetailViewController: BaseViewController {
     
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(nextSlide), userInfo: nil, repeats: true)
-        print(currentImageIndex)
     }
     
     @objc func nextSlide(){

@@ -12,7 +12,7 @@ final class GamesListViewController: BaseViewController {
     let dropDownMenu : DropDown = {
         let dropDownMenu = DropDown()
         dropDownMenu.dataSource = ["Top 20 Highest Rating","2022 Games","Clear Filter"]
-        let images = ["trophy.circle","timer.circle","trash.circle"]
+        let images = ["trophy.circle","clock.badge","trash.circle"]
         dropDownMenu.cellNib = UINib(nibName: "DropDownCell", bundle: nil)
         dropDownMenu.customCellConfiguration = { (index: Index, item: String, cell: DropDownCell) -> Void in
             guard let cell = cell as? ItemCell else { return }
@@ -35,7 +35,7 @@ final class GamesListViewController: BaseViewController {
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         gamesTableView.register(UINib(nibName: "GamesTableViewCell", bundle: nil), forCellReuseIdentifier: "GameCell")
         viewModel.delegate = self
         viewModel.fetchGames(page: 1)
@@ -43,7 +43,7 @@ final class GamesListViewController: BaseViewController {
         dropDownMenu.anchorView = filterItemButton
         filteredGames = viewModel.games
         
-        NotificationManager().localNotify(title: "Welcome", body: "Stranger", time: 5)
+        NotificationManager().localNotify(title: "We are miss you 💛", body: "Where are you been ? :)", time: 5)
         
     }
     
