@@ -75,6 +75,10 @@ Add NoteText | NoteList | Notification | App Logo
 ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/addNotev3.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/notes2.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/notification.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/appLogo.png) 
 
 
+## :star2: Video
+
+
+
 ## 3rd Party Library
 
 <div align="center"> 
