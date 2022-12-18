@@ -36,14 +36,13 @@ final class GamesListViewController: BaseViewController {
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        LoadingManager().show()
         gamesTableView.register(UINib(nibName: "GamesTableViewCell", bundle: nil), forCellReuseIdentifier: "GameCell")
         viewModel.delegate = self
         viewModel.fetchGames(page: page)
         configureSearch()
         dropDownMenu.anchorView = filterItemButton
         filteredGames = viewModel.games
-        NotificationManager().localNotify(title: "We are miss you 💛", body: "Where are you been ? :)", time: 5)//Notification Manager triggered.
+        NotificationManager().localNotify(title: "We are miss you 💛", body: "Where are you been ? :)", time: 7)//Notification Manager triggered.
     }
     
     
@@ -118,10 +117,10 @@ extension GamesListViewController : UITableViewDelegate,UITableViewDataSource {
                 let contentHeight = scrollView.contentSize.height
                 let height = scrollView.frame.size.height
                 if offSetY > contentHeight - height {
+                    LoadingManager().show()
                     page += 1
                     viewModel.fetchGames(page: page)
                     filteredGames?.append(contentsOf: viewModel.games ?? [])
-                    print(filteredGames?.count)
                 }
     }
     

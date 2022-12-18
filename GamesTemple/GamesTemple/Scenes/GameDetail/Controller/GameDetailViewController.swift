@@ -122,6 +122,7 @@ final class GameDetailViewController: BaseViewController {
 extension GameDetailViewController : GameDetailViewModelDelegate {
     func gameDetailLoaded() {
         genreList = viewModel.gameDetail?.genres
+        genreText.removeLast()
         DispatchQueue.main.async {
             self.nameLabel.text = "Name: \(self.viewModel.gameDetail?.name ?? "")"
             self.suggestionCountLabel.text = "Suggestion Count : \(self.viewModel.gameDetail?.suggestionsCount ?? 0)"

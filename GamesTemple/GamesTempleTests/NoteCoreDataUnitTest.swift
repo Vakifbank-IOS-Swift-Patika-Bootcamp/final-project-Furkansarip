@@ -23,8 +23,8 @@ final class NoteCoreDataUnitTest: XCTestCase {
         XCTAssertEqual(saveData?.noteText, "Fantastic")
     }
     
-    func getNote() throws {
+    func testGetNote() throws {
         let noteData = note.getNote()
-        XCTAssertEqual(noteData[0].gameName, "Test Game")
+        XCTAssertEqual(noteData[0].gameName, "TestGame")
     }
 }

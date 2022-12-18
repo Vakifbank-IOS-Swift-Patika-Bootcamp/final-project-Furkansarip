@@ -11,7 +11,7 @@ protocol GameListViewModelProtocol {
     var delegate : GameListViewModelDelegate? { get set }
     func fetchGames(page:Int)
     func getGameCount() -> Int
-    func getGame(at index:Int) ->GamesListModel?
+    func getGame(at index:Int) -> GamesListModel?
     func getGameId(at index:Int) -> Int?
     func getHighestRating()
     func upcomingGames()
@@ -29,7 +29,7 @@ class GameListViewModel : GameListViewModelProtocol {
     func fetchGames(page: Int) {
         NetworkManager.shared.getAllGames(page: page) { [weak self] result in
             guard let self = self else { return }
-            LoadingManager().show()
+            LoadingManager().hide()
             switch result {
             case .success(let games):
                 self.games = games.results
@@ -52,7 +52,7 @@ class GameListViewModel : GameListViewModelProtocol {
         return games?[index].id
     }
     
-    func getHighestRating()  {
+    func getHighestRating() {
         NetworkManager.shared.highestRating(page: 1) { [weak self] result in
             guard let self = self else { return }
             switch result {

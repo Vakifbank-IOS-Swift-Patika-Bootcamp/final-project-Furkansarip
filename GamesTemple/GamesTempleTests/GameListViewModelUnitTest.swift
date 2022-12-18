@@ -56,6 +56,20 @@ final class GameListViewModelUnitTest: XCTestCase {
         XCTAssertEqual(allGames?[0].id, 3939)
     }
     
+    func testGetHighestRating() throws {
+        viewModel.getHighestRating()
+        waitForExpectations(timeout: 10)
+        let data = viewModel.games
+        XCTAssertEqual(data?[0].id, 18050)
+    }
+    
+    func testThisYearGames() throws {
+        viewModel.upcomingGames()
+        waitForExpectations(timeout: 10)
+        let data = viewModel.games
+        XCTAssertEqual(data?[0].id, 326243)
+    }
+    
 }
 
 extension GameListViewModelUnitTest : GameListViewModelDelegate {

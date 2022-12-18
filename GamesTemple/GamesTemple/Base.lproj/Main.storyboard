@@ -461,29 +461,33 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="nCn-67-9Ht">
                                                 <rect key="frame" x="23" y="468.66666666666663" width="243" height="45"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k4g-Ul-89a">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="psx" translatesAutoresizingMaskIntoConstraints="NO" id="k4g-Ul-89a">
                                                         <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="45" id="9TB-te-H5f"/>
                                                             <constraint firstAttribute="height" constant="45" id="qXX-kM-UFu"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3M1-B0-X58">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xboxx" translatesAutoresizingMaskIntoConstraints="NO" id="3M1-B0-X58">
                                                         <rect key="frame" x="66" y="0.0" width="45" height="45"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="52W-BD-HD3"/>
                                                             <constraint firstAttribute="width" constant="45" id="Psq-xJ-6YR"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="unK-yN-u2u">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pcx" translatesAutoresizingMaskIntoConstraints="NO" id="unK-yN-u2u">
                                                         <rect key="frame" x="132" y="0.0" width="45" height="45"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="45" id="2Gl-Cg-ojq"/>
                                                             <constraint firstAttribute="height" constant="45" id="bbU-Ww-2y1"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="55c-z9-4nV">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mobilex" translatesAutoresizingMaskIntoConstraints="NO" id="55c-z9-4nV">
                                                         <rect key="frame" x="198" y="0.0" width="45" height="45"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="YxX-XX-CZY"/>
                                                             <constraint firstAttribute="width" constant="45" id="mRK-1q-Rvs"/>
@@ -719,14 +723,18 @@
     <resources>
         <image name="gamecontroller.fill" catalog="system" width="128" height="79"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="mobilex" width="34" height="34"/>
         <image name="note.text" catalog="system" width="128" height="107"/>
         <image name="note.text.badge.plus" catalog="system" width="128" height="108"/>
         <image name="onboard1" width="390" height="844"/>
         <image name="onboard2" width="390" height="844"/>
+        <image name="pcx" width="28" height="28"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="psx" width="34" height="34"/>
         <image name="selectGame" width="229" height="214"/>
         <image name="slider.horizontal.3" catalog="system" width="128" height="99"/>
         <image name="suit.heart.fill" catalog="system" width="128" height="107"/>
+        <image name="xboxx" width="28" height="29"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

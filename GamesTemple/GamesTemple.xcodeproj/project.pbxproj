@@ -55,6 +55,9 @@
 		74C84EAE294F218A001EA185 /* GameDetailViewModelUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84EAD294F218A001EA185 /* GameDetailViewModelUnitTest.swift */; };
 		74C84EB0294F275D001EA185 /* FavoriteCoreDataUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84EAF294F275D001EA185 /* FavoriteCoreDataUnitTest.swift */; };
 		74C84EB2294F2C71001EA185 /* NoteCoreDataUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84EB1294F2C71001EA185 /* NoteCoreDataUnitTest.swift */; };
+		74C84EB4294F40A6001EA185 /* FavoriteViewModelUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84EB3294F40A6001EA185 /* FavoriteViewModelUnitTest.swift */; };
+		74C84EB6294F42F4001EA185 /* NotesViewModelUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84EB5294F42F4001EA185 /* NotesViewModelUnitTest.swift */; };
+		74C84EB8294F47D8001EA185 /* GameListViewControllerUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C84EB7294F47D8001EA185 /* GameListViewControllerUnitTest.swift */; };
 		74CB509E294A6B3200647128 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB509D294A6B3200647128 /* AddNoteViewController.swift */; };
 		74F8BC7B293FAF840059B988 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7A293FAF840059B988 /* AppDelegate.swift */; };
 		74F8BC7D293FAF840059B988 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BC7C293FAF840059B988 /* SceneDelegate.swift */; };
@@ -143,6 +146,9 @@
 		74C84EAD294F218A001EA185 /* GameDetailViewModelUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewModelUnitTest.swift; sourceTree = "<group>"; };
 		74C84EAF294F275D001EA185 /* FavoriteCoreDataUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoreDataUnitTest.swift; sourceTree = "<group>"; };
 		74C84EB1294F2C71001EA185 /* NoteCoreDataUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCoreDataUnitTest.swift; sourceTree = "<group>"; };
+		74C84EB3294F40A6001EA185 /* FavoriteViewModelUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModelUnitTest.swift; sourceTree = "<group>"; };
+		74C84EB5294F42F4001EA185 /* NotesViewModelUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewModelUnitTest.swift; sourceTree = "<group>"; };
+		74C84EB7294F47D8001EA185 /* GameListViewControllerUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewControllerUnitTest.swift; sourceTree = "<group>"; };
 		74CB509D294A6B3200647128 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		74F8BC77293FAF840059B988 /* GamesTemple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamesTemple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F8BC7A293FAF840059B988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -422,6 +428,9 @@
 				74C84EAD294F218A001EA185 /* GameDetailViewModelUnitTest.swift */,
 				74C84EAF294F275D001EA185 /* FavoriteCoreDataUnitTest.swift */,
 				74C84EB1294F2C71001EA185 /* NoteCoreDataUnitTest.swift */,
+				74C84EB3294F40A6001EA185 /* FavoriteViewModelUnitTest.swift */,
+				74C84EB5294F42F4001EA185 /* NotesViewModelUnitTest.swift */,
+				74C84EB7294F47D8001EA185 /* GameListViewControllerUnitTest.swift */,
 			);
 			path = GamesTempleTests;
 			sourceTree = "<group>";
@@ -731,7 +740,10 @@
 			files = (
 				74C84EB0294F275D001EA185 /* FavoriteCoreDataUnitTest.swift in Sources */,
 				74C84EAE294F218A001EA185 /* GameDetailViewModelUnitTest.swift in Sources */,
+				74C84EB4294F40A6001EA185 /* FavoriteViewModelUnitTest.swift in Sources */,
 				74C84EAA294F0A2C001EA185 /* GameListViewModelUnitTest.swift in Sources */,
+				74C84EB8294F47D8001EA185 /* GameListViewControllerUnitTest.swift in Sources */,
+				74C84EB6294F42F4001EA185 /* NotesViewModelUnitTest.swift in Sources */,
 				74F8BC95293FAF840059B988 /* GamesTempleTests.swift in Sources */,
 				74C84EB2294F2C71001EA185 /* NoteCoreDataUnitTest.swift in Sources */,
 			);
