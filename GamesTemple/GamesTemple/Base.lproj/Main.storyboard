@@ -287,7 +287,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Game List" id="e32-LW-9z6">
-                        <barButtonItem key="rightBarButtonItem" title="Filter" image="ellipsis.circle" catalog="system" id="Dng-EP-WYC">
+                        <barButtonItem key="rightBarButtonItem" title="Filter" image="slider.horizontal.3" catalog="system" id="Dng-EP-WYC">
+                            <color key="tintColor" systemColor="systemPinkColor"/>
                             <connections>
                                 <action selector="filterButtonClicked:" destination="BYZ-38-t0r" id="n0g-rd-gwS"/>
                             </connections>
@@ -716,7 +717,6 @@
         <segue reference="CLr-x7-TXG"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="79"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="note.text" catalog="system" width="128" height="107"/>
@@ -725,6 +725,7 @@
         <image name="onboard2" width="390" height="844"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="selectGame" width="229" height="214"/>
+        <image name="slider.horizontal.3" catalog="system" width="128" height="99"/>
         <image name="suit.heart.fill" catalog="system" width="128" height="107"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

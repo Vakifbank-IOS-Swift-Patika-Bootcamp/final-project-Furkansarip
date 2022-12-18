@@ -10,6 +10,7 @@ import Foundation
 protocol GameDetailViewModelProtocol {
     var delegate : GameDetailViewModelDelegate? { get set }
     func fetchGame(id:Int)
+    func gameID() -> Int
 }
 
 protocol GameDetailViewModelDelegate : AnyObject {
@@ -18,6 +19,7 @@ protocol GameDetailViewModelDelegate : AnyObject {
 }
 
 class GameDetailViewModel : GameDetailViewModelProtocol {
+    
     weak var delegate: GameDetailViewModelDelegate?
     
     var gameDetail : GameDetail?
@@ -34,6 +36,11 @@ class GameDetailViewModel : GameDetailViewModelProtocol {
             }
         }
     }
+    
+    func gameID() -> Int {
+        return gameDetail?.id ?? 0
+    }
+
     
     
 }

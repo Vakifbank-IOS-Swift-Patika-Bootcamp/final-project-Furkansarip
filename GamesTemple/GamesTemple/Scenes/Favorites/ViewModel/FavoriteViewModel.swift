@@ -21,7 +21,8 @@ class FavoriteViewModel : FavoriteViewProtocol {
    weak var delegate: FavoriteViewDelegate?
     var images = [Screenshots]()
     func getImages(gameID: Int)  {
-        NetworkManager.shared.getScreenshots(id: gameID) { result in
+        NetworkManager.shared.getScreenshots(id: gameID) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let screenshots):
                 self.images = screenshots.results

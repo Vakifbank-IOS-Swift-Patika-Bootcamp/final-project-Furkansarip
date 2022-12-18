@@ -17,38 +17,37 @@ final class GamesListViewController: BaseViewController {
         dropDownMenu.customCellConfiguration = { (index: Index, item: String, cell: DropDownCell) -> Void in
             guard let cell = cell as? ItemCell else { return }
             cell.itemImage.image = UIImage(systemName: images[index])
-         }
+        }
         return dropDownMenu
-    }()
+    }() //Filtre Dropdown
     @IBOutlet weak var gamesTableView: UITableView! {
         didSet {
             gamesTableView.delegate = self
             gamesTableView.dataSource = self
         }
     }
-   
+    
     @IBOutlet weak var filterItemButton: UIBarButtonItem!
     var gameID : Int?
     var selectedScreenshots = [Screenshots]()
     var viewModel = GameListViewModel()
     var filteredGames : [GamesListModel]?
+    var page = 1
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        LoadingManager().show()
         gamesTableView.register(UINib(nibName: "GamesTableViewCell", bundle: nil), forCellReuseIdentifier: "GameCell")
         viewModel.delegate = self
-        viewModel.fetchGames(page: 1)
+        viewModel.fetchGames(page: page)
         configureSearch()
         dropDownMenu.anchorView = filterItemButton
         filteredGames = viewModel.games
-        
-        NotificationManager().localNotify(title: "We are miss you 💛", body: "Where are you been ? :)", time: 5)
-        
+        NotificationManager().localNotify(title: "We are miss you 💛", body: "Where are you been ? :)", time: 5)//Notification Manager triggered.
     }
     
     
- //MARK: FilterButton
+    //MARK: FilterButton
     @IBAction func filterButtonClicked(_ sender: Any) {
         dropDownMenu.show()
         dropDownMenu.selectionAction =  { [unowned self] (index: Int, item: String) in
@@ -62,7 +61,7 @@ final class GamesListViewController: BaseViewController {
             default:
                 print("")
             }
-          }
+        }
     }
     
     //MARK: SearchController
@@ -79,16 +78,15 @@ final class GamesListViewController: BaseViewController {
 extension GamesListViewController : UISearchResultsUpdating,UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
-        print(text)
         viewModel.games = filteredGames?.filter({$0.name.lowercased().contains(text)})
-                if text == "" {
-                    viewModel.games = filteredGames
-                    
-                }
-                gamesTableView.reloadData()
-            }
+        if text == "" {
+            viewModel.games = filteredGames
+            
+        }
+        gamesTableView.reloadData()
     }
-    
+}
+
 
 //MARK: TableView
 extension GamesListViewController : UITableViewDelegate,UITableViewDataSource {
@@ -100,7 +98,7 @@ extension GamesListViewController : UITableViewDelegate,UITableViewDataSource {
         guard let cell = gamesTableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as? GamesTableViewCell,let model = viewModel.getGame(at: indexPath.row) else
         { return UITableViewCell() }
         cell.configure(game: model)
-                return cell
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -110,9 +108,21 @@ extension GamesListViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let id = viewModel.getGameId(at: indexPath.row)
         gameID = id
-        selectedScreenshots = viewModel.games?[indexPath.row].screenshots ?? []
+        selectedScreenshots = viewModel.games?[indexPath.row].screenshots ?? [] //GameDetail sayfasında bulunan slaytlar için oyun screenshotslarını gönderiyoruz.
         gamesTableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "gameDetail", sender: nil)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offSetY = scrollView.contentOffset.y
+                let contentHeight = scrollView.contentSize.height
+                let height = scrollView.frame.size.height
+                if offSetY > contentHeight - height {
+                    page += 1
+                    viewModel.fetchGames(page: page)
+                    filteredGames?.append(contentsOf: viewModel.games ?? [])
+                    print(filteredGames?.count)
+                }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -122,6 +132,8 @@ extension GamesListViewController : UITableViewDelegate,UITableViewDataSource {
     }
     
     
+    
+    
 }
 
 
@@ -129,18 +141,19 @@ extension GamesListViewController : UITableViewDelegate,UITableViewDataSource {
 extension GamesListViewController : GameListViewModelDelegate {
     func gamesLoaded() {
         DispatchQueue.main.async {
-            
+            //LoadingManager.shared.show()
             self.filteredGames = self.viewModel.games
             self.gamesTableView.reloadData()
-            self.indicator.stopAnimating()
+            LoadingManager.shared.hide()
         }
+        
         
     }
     
     func gamesFailed(error: ErrorModel) {
         indicator.startAnimating()
         DispatchQueue.main.async {
-            self.showErrorAlert(message: error.rawValue) 
+            self.showErrorAlert(message: error.rawValue)
         }
         
     }
@@ -148,6 +161,6 @@ extension GamesListViewController : GameListViewModelDelegate {
     
 }
 
-    
+
 
 

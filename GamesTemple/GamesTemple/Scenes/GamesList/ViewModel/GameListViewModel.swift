@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import DropDown
 
 protocol GameListViewModelProtocol {
     var delegate : GameListViewModelDelegate? { get set }
@@ -30,6 +29,7 @@ class GameListViewModel : GameListViewModelProtocol {
     func fetchGames(page: Int) {
         NetworkManager.shared.getAllGames(page: page) { [weak self] result in
             guard let self = self else { return }
+            LoadingManager().show()
             switch result {
             case .success(let games):
                 self.games = games.results
