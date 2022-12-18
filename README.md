@@ -58,7 +58,7 @@ Localization Desteği &#x2611;
 
 ## :star2: Ekran Görüntüleri 
 
-First Onboard | Second Onboard | GameList | Filter Game
+Launch Screen | First Onboard | Second Onboard | Games List
 :-------------------------: | :-------------------------: | :-------------------------: | :-------------------------:
 ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/launch.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/onboard1.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/onboard2.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/main.png)
 
