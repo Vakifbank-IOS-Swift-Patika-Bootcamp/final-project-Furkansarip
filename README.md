@@ -57,16 +57,17 @@ Unit Testler &#x2611;
 
 ## :star2: Not Oluşturma Süreci
 
-Notes | Create Note | Choose a Season
-:-------------------------: | :-------------------------: | :-------------------------:
-![Preview](https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/notes.png) | ![Preview](https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/createNote.png) | ![Preview](https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/note1.png)
+Notes | Create Note | Choose a Season | Test
+:-------------------------: | :-------------------------: | :-------------------------: | :-------------------------:
+![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png)
+[Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png)
 
 Choose a Episode |  Update Note | Update Alert
 :-------------------------: | :-------------------------: | :-------------------------:
 ![Preview](https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/note2.png) | ![Preview](https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/note3.png) | ![Preview](https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/updateNote.png)
 
 
-##3rd Party Library
+#3rd Party Library
 
 <div align="center"> 
 <ul>
