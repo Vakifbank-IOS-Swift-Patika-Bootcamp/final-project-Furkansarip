@@ -8,8 +8,8 @@
 import Foundation
 
 struct NetworkManager {
-    private let baseURL = "https://api.rawg.io/api/games"
-    private let API_KEY = "a36ad3f9050f4638861aa23a1284c34c"
+    private let baseURL = Constants().baseURL
+    private let API_KEY = Constants().API_KEY
     static let shared = NetworkManager()
     private init(){}
     

@@ -35,12 +35,12 @@ final class GameDetailViewController: BaseViewController {
     private var viewModel = GameDetailViewModel()
     var screenshots = [Screenshots]()
     private var genreText = ""
-    var timer : Timer?
+    var timer : Timer? //Slayt için timer eklendi.
     var currentImageIndex = 0
     
     //MARK: Genres
     var genreList : [Genre]? {
-        didSet {
+        didSet { //Eklenen her tür aralarına - konularak formatlanıyor.
             for genre in genreList ?? [] {
                 genreText += "\(genre.name)-"
             }
@@ -52,7 +52,7 @@ final class GameDetailViewController: BaseViewController {
         didSet {
             for parent in platformList ?? [] {
                 let result = parent.platform.name
-                switch result {
+                switch result {// Gelen dataya göre var olan platformların aktifliği görsel olarak değişiyor.
                 case "PC":
                     pcLogo.image = UIImage(systemName: "laptopcomputer")
                     pcLogo.tintColor = .systemPink
@@ -71,17 +71,18 @@ final class GameDetailViewController: BaseViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        indicator.startAnimating()
         if isFavorite {
             favoriteButton.image = UIImage(systemName: "heart.fill")
         }
         descriptionLabel.adjustsFontSizeToFitWidth = true
-        descriptionLabel.minimumScaleFactor = 0.6
+        descriptionLabel.minimumScaleFactor = 0.7
         imagesCollectionView.delegate = self
         imagesCollectionView.dataSource = self
         guard let id = gameId else { return }
         viewModel.delegate = self
         viewModel.fetchGame(id: id)
-        pageView.numberOfPages = screenshots.count
+        pageView.numberOfPages = screenshots.count // Screenshots sayısı kadar sayfa geçişi sağlanacak.
         startTimer()
         
     }
@@ -90,7 +91,7 @@ final class GameDetailViewController: BaseViewController {
         timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(nextSlide), userInfo: nil, repeats: true)
     }
     
-    @objc func nextSlide(){
+    @objc func nextSlide(){ 
         
         if currentImageIndex < screenshots.count - 1 {
             currentImageIndex += 1
@@ -123,7 +124,8 @@ extension GameDetailViewController : GameDetailViewModelDelegate {
     func gameDetailLoaded() {
         genreList = viewModel.gameDetail?.genres
         genreText.removeLast()
-        DispatchQueue.main.async {
+        indicator.stopAnimating()
+        DispatchQueue.main.async {//Gelen verilerin işlenmesi
             self.nameLabel.text = "Name: \(self.viewModel.gameDetail?.name ?? "")"
             self.suggestionCountLabel.text = "Suggestion Count : \(self.viewModel.gameDetail?.suggestionsCount ?? 0)"
             self.ratingLabel.text = "Rating : \(self.viewModel.gameDetail?.rating ?? 0.0)"
@@ -133,6 +135,7 @@ extension GameDetailViewController : GameDetailViewModelDelegate {
             self.descriptionLabel.text = self.viewModel.gameDetail?.description
             self.genreList? = self.viewModel.gameDetail?.genres ?? []
             self.platformList = self.viewModel.gameDetail?.parentPlatforms
+            
         }
     }
     

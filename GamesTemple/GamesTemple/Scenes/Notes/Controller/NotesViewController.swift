@@ -20,6 +20,7 @@ final class NotesViewController: BaseViewController {
     //MARK: LifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        indicator.startAnimating()
         notesTableView.register(UINib(nibName: "NotesTableViewCell", bundle: nil), forCellReuseIdentifier: "NoteCell")
         
     }
@@ -27,6 +28,7 @@ final class NotesViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         games = NoteCoreDataManager().getNote()
+        indicator.stopAnimating()
         notesTableView.reloadData()
     }
     

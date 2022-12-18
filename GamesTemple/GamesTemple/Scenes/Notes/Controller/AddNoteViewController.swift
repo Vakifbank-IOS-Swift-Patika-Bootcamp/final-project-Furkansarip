@@ -81,7 +81,7 @@ class AddNoteViewController: BaseViewController {
         
     }
     //MARK: Add or Uptade Button functionality
-    @IBAction func addNoteButton(_ sender: UIButton) {
+    @IBAction func addNoteButton(_ sender: UIButton) { // Gelen case update ise buton adı değişiyor ve eşleşmeler yapılıyor.
         let buttonTitle = NoteOperations(rawValue: sender.titleLabel?.text ?? "")
         switch buttonTitle {
         case .addNote:

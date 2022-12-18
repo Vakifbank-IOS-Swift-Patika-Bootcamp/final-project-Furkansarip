@@ -1,8 +1,8 @@
 # GamesTemple
 
-XCode Versiyonu : 14.0.1
-iOS Sürümü : 16.0
-Test Edilen Cihazlar : iPhone 11 - iPhone 11 Pro - iPhone SE 3rd Gen - iPhone 14 - iPhone 14 Pro
+XCode Versiyonu : 14.0.1<br>
+iOS Sürümü : 16.0<br>
+Test Edilen Cihazlar : iPhone 11 - iPhone 11 Pro - iPhone SE 3rd Gen - iPhone 14 - iPhone 14 Pro<br>
 ## :star2: Proje Hakkında
 <div align="center"> 
 <ul>
@@ -48,25 +48,34 @@ LocalNotification Özelliği &#x2611;
 <li>
 Unit Testler &#x2611;
 </li>
+<li>
+Localization Desteği &#x2611;
+</li>
 </ul>
 
 </div>
 
-<img  alt="first" src = "https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/bbfst.png">
-<img  alt="second" src = "https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/bbsct.png">
 
-## :star2: Not Oluşturma Süreci
+## :star2: Ekran Görüntüleri 
 
-Notes | Create Note | Choose a Season | Test
+First Onboard | Second Onboard | GameList | Filter Game
 :-------------------------: | :-------------------------: | :-------------------------: | :-------------------------:
-![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png)
+![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/launch.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/onboard1.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/onboard2.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/main.png)
 
-Choose a Episode |  Update Note | Update Alert
-:-------------------------: | :-------------------------: | :-------------------------:
-![Preview](https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/note2.png) | ![Preview](https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/note3.png) | ![Preview](https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/updateNote.png)
+Filter | Search | 2022 Games | Game Detail
+:-------------------------: | :-------------------------: | :-------------------------: | :-------------------------:
+![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/mainFilter.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/mainsearch.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/gameDetail.png)
+
+Favorite Game | Favorite List | Note List | Add Note
+:-------------------------: | :-------------------------: | :-------------------------: | :-------------------------: 
+![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/gameDetailFav.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/FavoriteList.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/notes1.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/addNotev2.png) 
+
+Add NoteText | NoteList | Notification | App Logo
+:-------------------------: | :-------------------------: | :-------------------------: | :-------------------------: 
+![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/addNotev3.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/notes2.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/notification.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/appLogo.png) 
 
 
-#3rd Party Library
+## 3rd Party Library
 
 <div align="center"> 
 <ul>

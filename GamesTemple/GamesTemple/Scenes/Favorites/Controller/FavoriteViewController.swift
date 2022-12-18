@@ -16,6 +16,7 @@ final class FavoriteViewController: BaseViewController {
     //MARK: LifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         favoriteListTableView.delegate = self
         favoriteListTableView.dataSource = self
         favoriteListTableView.register(UINib(nibName: "FavoriteTableViewCell", bundle: nil), forCellReuseIdentifier: "FavoriteCell")
@@ -24,9 +25,12 @@ final class FavoriteViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         fetchFavoriteGames()
+        indicator.stopAnimating()
         favoriteListTableView.reloadData()
+        
     }
     func fetchFavoriteGames() {
+        indicator.startAnimating()
         favoriteGame = FavoriteCoreDataManager.shared.getFavoriteGame()
     }
     
@@ -59,7 +63,7 @@ extension FavoriteViewController : UITableViewDelegate, UITableViewDataSource {
         guard let gameDetail = segue.destination as? GameDetailViewController else { return }
         gameDetail.isFavorite = true
         gameDetail.gameId = favoriteId
-        gameDetail.screenshots = screenshots
+        gameDetail.screenshots = screenshots//GameDetail ekranına geçmeden önce screenshots ve geçerli oyun id pushlanıyor.
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {

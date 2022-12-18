@@ -42,6 +42,10 @@ final class GamesListViewController: BaseViewController {
         configureSearch()
         dropDownMenu.anchorView = filterItemButton
         filteredGames = viewModel.games
+        indicator.startAnimating()
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
         NotificationManager().localNotify(title: "We are miss you 💛", body: "Where are you been ? :)", time: 7)//Notification Manager triggered.
     }
     
@@ -113,6 +117,7 @@ extension GamesListViewController : UITableViewDelegate,UITableViewDataSource {
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+       
         let offSetY = scrollView.contentOffset.y
                 let contentHeight = scrollView.contentSize.height
                 let height = scrollView.frame.size.height
@@ -121,6 +126,7 @@ extension GamesListViewController : UITableViewDelegate,UITableViewDataSource {
                     page += 1
                     viewModel.fetchGames(page: page)
                     filteredGames?.append(contentsOf: viewModel.games ?? [])
+                    indicator.stopAnimating()
                 }
     }
     
@@ -140,11 +146,11 @@ extension GamesListViewController : UITableViewDelegate,UITableViewDataSource {
 extension GamesListViewController : GameListViewModelDelegate {
     func gamesLoaded() {
         DispatchQueue.main.async {
-            //LoadingManager.shared.show()
             self.filteredGames = self.viewModel.games
+            self.indicator.stopAnimating()
             self.gamesTableView.reloadData()
-            LoadingManager.shared.hide()
         }
+        
         
         
     }
