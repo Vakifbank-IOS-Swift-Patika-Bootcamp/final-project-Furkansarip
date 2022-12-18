@@ -59,8 +59,7 @@ Unit Testler &#x2611;
 
 Notes | Create Note | Choose a Season | Test
 :-------------------------: | :-------------------------: | :-------------------------: | :-------------------------:
-![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png)
-[Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png)
+![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png) | ![Preview](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-Furkansarip/blob/development/Screenshots/2022games.png)
 
 Choose a Episode |  Update Note | Update Alert
 :-------------------------: | :-------------------------: | :-------------------------:
