@@ -76,8 +76,7 @@ Add NoteText | NoteList | Notification | App Logo
 
 
 ## :star2: Video
-
-
+https://user-images.githubusercontent.com/63560347/208313050-769efb47-178f-4f9a-b808-55deacb3ad2b.mov
 
 ## 3rd Party Library
 
