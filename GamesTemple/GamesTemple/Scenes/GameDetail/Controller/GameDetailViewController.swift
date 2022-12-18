@@ -122,9 +122,9 @@ final class GameDetailViewController: BaseViewController {
 //MARK: GameDetailViewModelDelegate
 extension GameDetailViewController : GameDetailViewModelDelegate {
     func gameDetailLoaded() {
+        indicator.stopAnimating()
         genreList = viewModel.gameDetail?.genres
         genreText.removeLast()
-        indicator.stopAnimating()
         DispatchQueue.main.async {//Gelen verilerin işlenmesi
             self.nameLabel.text = "Name: \(self.viewModel.gameDetail?.name ?? "")"
             self.suggestionCountLabel.text = "Suggestion Count : \(self.viewModel.gameDetail?.suggestionsCount ?? 0)"

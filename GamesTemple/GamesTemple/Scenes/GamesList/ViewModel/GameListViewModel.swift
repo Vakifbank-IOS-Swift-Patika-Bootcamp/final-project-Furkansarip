@@ -21,7 +21,7 @@ protocol GameListViewModelDelegate : AnyObject {
     func gamesLoaded()
     func gamesFailed(error:ErrorModel)
 }
-class GameListViewModel : GameListViewModelProtocol {
+final class GameListViewModel : GameListViewModelProtocol {
     
     weak var delegate : GameListViewModelDelegate?
     public var games : [GamesListModel]?

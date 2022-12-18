@@ -12,7 +12,7 @@ protocol NoteDelegate {
     func noteOperations()
 }
 
-class AddNoteViewController: BaseViewController {
+final class AddNoteViewController: BaseViewController {
     
     var noteDelegate : NoteDelegate?
     //MARK: IBOutlets

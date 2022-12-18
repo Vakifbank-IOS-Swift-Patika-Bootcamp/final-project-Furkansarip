@@ -49,7 +49,6 @@ final class GamesListViewController: BaseViewController {
         NotificationManager().localNotify(title: "We are miss you 💛", body: "Where are you been ? :)", time: 7)//Notification Manager triggered.
     }
     
-    
     //MARK: FilterButton
     @IBAction func filterButtonClicked(_ sender: Any) {
         dropDownMenu.show()
@@ -76,6 +75,7 @@ final class GamesListViewController: BaseViewController {
         search.searchBar.autocapitalizationType = .none
         navigationItem.searchController = search
     }
+    
 }
 
 extension GamesListViewController : UISearchResultsUpdating,UISearchBarDelegate {
@@ -126,7 +126,9 @@ extension GamesListViewController : UITableViewDelegate,UITableViewDataSource {
                     page += 1
                     viewModel.fetchGames(page: page)
                     filteredGames?.append(contentsOf: viewModel.games ?? [])
-                    indicator.stopAnimating()
+                    gamesTableView.setContentOffset(.zero, animated: true)
+                    gamesTableView.contentOffset = .zero
+                    indicator.startAnimating()
                 }
     }
     
@@ -135,10 +137,6 @@ extension GamesListViewController : UITableViewDelegate,UITableViewDataSource {
         detailView.screenshots = selectedScreenshots
         detailView.gameId = gameID
     }
-    
-    
-    
-    
 }
 
 
@@ -151,8 +149,6 @@ extension GamesListViewController : GameListViewModelDelegate {
             self.gamesTableView.reloadData()
         }
         
-        
-        
     }
     
     func gamesFailed(error: ErrorModel) {
@@ -160,10 +156,7 @@ extension GamesListViewController : GameListViewModelDelegate {
         DispatchQueue.main.async {
             self.showErrorAlert(message: error.rawValue)
         }
-        
     }
-    
-    
 }
 
 

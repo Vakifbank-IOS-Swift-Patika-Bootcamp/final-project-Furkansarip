@@ -17,7 +17,7 @@ protocol FavoriteViewDelegate : AnyObject {
     func favoriteImagesFailed(error:ErrorModel)
 }
 
-class FavoriteViewModel : FavoriteViewProtocol {
+final class FavoriteViewModel : FavoriteViewProtocol {
    weak var delegate: FavoriteViewDelegate?
     var images = [Screenshots]()
     func getImages(gameID: Int)  {

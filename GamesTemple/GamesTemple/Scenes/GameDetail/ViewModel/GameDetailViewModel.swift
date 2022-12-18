@@ -18,7 +18,7 @@ protocol GameDetailViewModelDelegate : AnyObject {
     func gameDetailFail(error:ErrorModel)
 }
 
-class GameDetailViewModel : GameDetailViewModelProtocol {
+final class GameDetailViewModel : GameDetailViewModelProtocol {
     
     weak var delegate: GameDetailViewModelDelegate?
     
