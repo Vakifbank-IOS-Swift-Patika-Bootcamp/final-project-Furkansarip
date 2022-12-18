@@ -1,59 +1,89 @@
-# final-project
+# GamesTemple
 
-Vakıfbank IOS Swift Bootcamp Bitirme Projesi
+XCode Versiyonu : 14.0.1
+iOS Sürümü : 16.0
+Test Edilen Cihazlar : iPhone 11 - iPhone 11 Pro - iPhone SE 3rd Gen - iPhone 14 - iPhone 14 Pro
+## :star2: Proje Hakkında
+<div align="center"> 
+<ul>
+<li>
+Oyunların Listelenmesi &#x2611;
+</li>
+<li>
+Listelenen oyunlar üzerinde filtreleme &#x2611;
+</li>
+<li>
+Sayfalama Yapısı &#x2611;
+</li>
+<li> 
+Listelenen oyunlar arasından arama fonksiyonu &#x2611;
+</li>
+<li> 
+Oyun Detay Ekranı ve Desteklenen Platformlar &#x2611;
+</li>
+<li> 
+Oyun Detay Ekranı Slayt Gösterisi &#x2611;
+</li>
+<li>
+Favoriye Oyun Ekleme &#x2611;
+</li>
+<li>
+Favoriye Eklenen oyunların listesi &#x2611;
+</li>
+<li>
+Oyunlar hakkında puanlama ve not oluşturma &#x2611;
+</li>
+<li>
+Oluşturulan notların güncellenmesi &#x2611;
+</li>
+<li>
+SwiftAlerView ile Hata Yakalama ve Listeleme &#x2611;
+</li>
+<li>
+Material Activity Indicator ile bekleme ekranları &#x2611;
+</li>
+<li>
+LocalNotification Özelliği &#x2611;
+</li>
+<li>
+Unit Testler &#x2611;
+</li>
+</ul>
 
-Genel Detaylar:
-3 ana ekrandan oluşan public API tabanlı bir uygulaması yapılması beklenmektedir.(API
-sonradan kararlaştırılacaktır.)
-Aşağıda yazılmış olan tüm maddeler ideal uygulamayı tarif etmekle beraber; herkes
-başardığı özelliklere göre değerlendirilecektir.
-Yapılmış maddelerin başarılı uygulanmış olması tüm maddeleri tamamlamaktan daha
-önemlidir.
-Git Kullanımı:
-- Uygulama github.com sayfasına public repo olarak yüklenmelidir.
-- Git commitleri atomic olmalı ve genel commit mesajları kurallarına dikkat
-edilmelidir. - Commit mesajları atılırken branch yapısına dikkat edilmelidir.
-(Develop, Feature vb. branch’ler oluşturulmalıdır.)
-1. Ekran: (Liste Ekranı)
-- MVVM pattern’i ile yazılmalıdır.
-- Item’lar arasında arama yapılabilmelidir.
-- Item’ları sıralama butonu ile sıralanabilmelidir.
-- Sadece item’lar güncellendiğinde görünüm güncellenmelidir. (Ekrana her
-girişte güncelleme olmamalı)
-2. Ekran: (Detay Ekranı)
-- MVVM pattern’i ile yazılmalıdır.
-- Item’a basıldığında ilgili detaya yönlenmelidir.(Alanlar belirtilecektir.)
-- Edit işlemleri için aynı ekran kullanılacaktır.
-- Düzenlemede tüm alanlar eklenmemişse item kaydedilmemelidir.
-3. Ekran: (Yeni Giriş Ekranı)
-- MVVM pattern’i ile yazılmalıdır.
-- Ekran present şekilde açılmalıdır.
-- Ekleme tüm alanlar eklenmemişse item kaydedilmemelidir.
-Uygulama gereklilikleri:
-- SPM veya Cocoapods kullanılmalıdır.
-- Uygulamada hata mesajları ve bekleme esnasında activity indicator
+</div>
 
-kullanılmalıdır.. - İşlemler CoreData ile yapılmalıdır.
-- CoreData’ya bir CoreDataManager üzerinden erişilmelidir.
-- Local push entegrasyonu sağlanmalıdır.
-- Notification yönetimi bir localNotificationManager aracılığıyla
-yapılmalıdır. - Localization sağlanmalıdır.
-- ViewModel localNotificationManager’a notificationManager protokolü üzerinden
-erişmelidir.
-- Uygulamanın unit test yaklaşımı ve coverage yüzdesi değerlendirme kriterleri
-arasındadır.
-- UI ve animasyon tamamen tercihe bağlı olup farklı cihaz görünümleri
-gözetilmelidir.
+<img  alt="first" src = "https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/bbfst.png">
+<img  alt="second" src = "https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/bbsct.png">
 
-1- API - https://rawg.io/apidocs - Dokümantasyon Chrome ile açılmalıdır.
-2- Git reposu public gözüküyor ancak ödevler nasıl yükleniyorsa aynı sistem kullanılacaktır.
-3- ReadMe dosyası repoda olmalıdır.
-4- Liste ekranı için istenilen filtre kullanılabilir(2022 de çıkan oyunlar, platforma özel
-oyunlar veya popüler oyunlar olabilir.)
-5- Detay ekranında Fotoğraf ve en az 4 bilgi olacak.
-6- Listeden detaya gidildiğinde favorilere ekleme olacak başka bir editleme olmayacak.(2.
-Ekrandaki editleme maddesi)
-7- Favorilerin listelendiği bir ekran olacak.
-8- Liste şeklinde Notlar ekranı olacak. Oyunlara ait not ekleyebileceğim ve mevcut notları
-düzenleyebileceğim.(Dokümandaki 3. Ekran Yeni giriş ekranı bu kısımda olacak)
-9- Hatalar yakalanmalı ve alert şeklinde gösterilmelidir.
+## :star2: Not Oluşturma Süreci
+
+Notes | Create Note | Choose a Season
+:-------------------------: | :-------------------------: | :-------------------------:
+![Preview](https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/notes.png) | ![Preview](https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/createNote.png) | ![Preview](https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/note1.png)
+
+Choose a Episode |  Update Note | Update Alert
+:-------------------------: | :-------------------------: | :-------------------------:
+![Preview](https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/note2.png) | ![Preview](https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/note3.png) | ![Preview](https://github.com/Furkansarip/BreakingBadApp/blob/main/screenshots/updateNote.png)
+
+
+##3rd Party Library
+
+<div align="center"> 
+<ul>
+<li>
+DropDown &#x2611;
+</li>
+<li>
+MaterialActivityIndicator &#x2611;
+</li>
+<li>
+AF Image &#x2611;
+</li>
+<li>
+Cosmos Rating &#x2611;
+</li>
+<li>
+SwiftAlertView &#x2611;
+</li>
+</ul>
+</div>
