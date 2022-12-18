@@ -31,13 +31,19 @@ Favoriye Oyun Ekleme &#x2611;
 Favoriye Eklenen oyunların listesi &#x2611;
 </li>
 <li>
+Favoriye Listesinden Oyun Silme Desteği &#x2611;
+</li>
+<li>
 Oyunlar hakkında puanlama ve not oluşturma &#x2611;
 </li>
 <li>
 Oluşturulan notların güncellenmesi &#x2611;
 </li>
 <li>
-SwiftAlerView ile Hata Yakalama ve Listeleme &#x2611;
+Oluşturulan notların silinmesi &#x2611;
+</li>
+<li>
+SwiftAlertView ile Hata Yakalama ve Listeleme &#x2611;
 </li>
 <li>
 Material Activity Indicator ile bekleme ekranları &#x2611;
